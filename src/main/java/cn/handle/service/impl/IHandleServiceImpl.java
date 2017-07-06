@@ -38,6 +38,7 @@ public class IHandleServiceImpl implements IHandleService{
 		Map<String, String> map = new HashMap<>();
 		try {
 			
+			
 			 String url = iAccountCached.getUrl(); //webservice请求url
 			 String method = iAccountCached.getMethod(); //webservice请求方法名称
 			 String userId = iAccountCached.getUserid(); //webservice登录账号

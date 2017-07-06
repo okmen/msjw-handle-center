@@ -431,7 +431,7 @@
 		</dependency>
 		<dependency>
 			<groupId>cn.chudaokeji.services</groupId>
-			<artifactId>handle-service-center-api</artifactId>
+			<artifactId>handle-center-api</artifactId>
 			<version>${handle-center-api.version}</version>
 		</dependency>
 	</dependencies>
