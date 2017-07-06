@@ -1,12 +1,15 @@
 package cn.handle.service.impl;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.alibaba.fastjson.JSONObject;
 
 import cn.handle.bean.vo.ApplyCarTemporaryLicenceVo;
 import cn.handle.bean.vo.ApplyGatePassVo;
@@ -24,6 +27,7 @@ import cn.handle.bean.vo.VehicleDrivingLicenseVo;
 import cn.handle.cache.impl.IHandleServiceCenterCachedImpl;
 import cn.handle.service.IHandleService;
 import cn.handle.utils.ThirdPartyInterface;
+import cn.sdk.webservice.WebServiceClient;
 
 @SuppressWarnings(value="all")
 @Service("handleService")
@@ -361,5 +365,78 @@ public class IHandleServiceImpl implements IHandleService{
 			throw e;
 		}
 		return map;
+	}
+	
+
+	/**
+	 * 六年免检预约
+	 */
+	public JSONObject createVehicleInspection(LinkedHashMap<String, Object> map) throws Exception {
+		String method = "createVehicleInspection";
+		JSONObject jsonObject = new JSONObject();
+		try {
+			String url = iAccountCached.getStcUrl();
+			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
+		} catch (Exception e) {
+			logger.error("createVehicleInspection 失败 ， map = " + map);
+			throw e;
+		}
+		return jsonObject;
+	}
+
+	/**
+	 * 获取车辆类型列表
+	 */
+	public JSONObject getCarTypes(LinkedHashMap<String, Object> map) throws Exception {
+		String method = "getCarTypes";
+		JSONObject jsonObject = new JSONObject();
+		try {
+			String url = iAccountCached.getStcUrl();
+			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
+		} catch (Exception e) {
+			logger.error("getCarTypes 失败 ， map = " + map);
+			throw e;
+		}
+		return jsonObject;
+	}
+
+	/**
+	 * 取消机动车六年免检预约
+	 * 
+	 * @param map
+	 * @return
+	 * @throws Exception
+	 */
+	public JSONObject cancelVehicleInspection(LinkedHashMap<String, Object> map) throws Exception {
+		String method = "cancelVehicleInspection";
+		JSONObject jsonObject = new JSONObject();
+		try {
+			String url = iAccountCached.getStcUrl();
+			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
+		} catch (Exception e) {
+			logger.error("cancelVehicleInspection 失败， map = " + map);
+			throw e;
+		}
+		return jsonObject;
+	}
+
+	/**
+	 * 取消机动车六年免检预约
+	 * 
+	 * @param map
+	 * @return
+	 * @throws Exception
+	 */
+	public JSONObject getVehicleInspection(LinkedHashMap<String, Object> map) throws Exception {
+		String method = "getVehicleInspection";
+		JSONObject jsonObject = new JSONObject();
+		try {
+			String url = iAccountCached.getStcUrl();
+			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
+		} catch (Exception e) {
+			logger.error("getVehicleInspection 失败， map = " + map);
+			throw e;
+		}
+		return jsonObject;
 	}
 }
