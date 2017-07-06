@@ -17,5 +17,5 @@
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:protocol name="dubbo" port="${dubbo.provider.port}" />
 	
-	<import resource="classpath*:/META-INF/spring/handle-service-center-provider.xml"/>
+	<import resource="classpath*:/META-INF/spring/handle-center-provider.xml"/>
 </beans>
