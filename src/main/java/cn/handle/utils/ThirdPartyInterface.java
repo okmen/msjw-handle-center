@@ -17,7 +17,9 @@ import cn.handle.bean.vo.IocomotiveCarChangeContactVo;
 import cn.handle.bean.vo.IocomotiveCarReplaceVo;
 import cn.handle.bean.vo.RenewalDriverLicenseVo;
 import cn.handle.bean.vo.RepairOrReplaceDriverLicenseVo;
+import cn.handle.bean.vo.ReplaceMotorVehicleLicensePlateVo;
 import cn.handle.bean.vo.VehicleDrivingLicenseVo;
+import cn.sdk.bean.BaseBean;
 import cn.sdk.webservice.WebServiceClient;
 
 /**
@@ -31,6 +33,7 @@ public class ThirdPartyInterface {
 	private static final String ywlx5 = "5"; //机动车行驶证换领
 	private static final String ywlx6 = "6"; //机动车联系方式变更
 	private static final String ywlx1 = "1"; //补领机动车行驶证
+	private static final String ywlx3 = "3"; //补领机动车号牌
 	
 	/**
 	 * 驾驶证年审
@@ -453,6 +456,46 @@ public class ThirdPartyInterface {
 		map.put("code", code);
 		map.put("msg", msg);
 		return map;
+
+	}
+	
+	/**
+	 * 补领机动车号牌
+	 * @param vehicleDrivingLicenseVo
+	 * @return
+	 * @throws Exception
+	 */
+	public static JSONObject replaceMotorVehicleLicensePlate(ReplaceMotorVehicleLicensePlateVo vo, String url,
+			String method, String userId, String userPwd, String key) throws Exception {
+		BaseBean baseBean = new BaseBean();
+		String EZ1002 = "EZ1002";
+		//拼装xml数据
+		StringBuffer sb = new StringBuffer();
+		sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?><request>")
+		.append("<YWLX>").append(ywlx3).append("</YWLX>")     									//业务类型
+		.append("<JDCSYR>").append(vo.getName()).append("</JDCSYR>")     						//机动车所有人
+		.append("<SFZMHM>").append(vo.getIdentityCard()).append("</SFZMHM>")  					//证件号码
+		.append("<HPHM>").append(vo.getNumberPlate()).append("</HPHM>")  						//号牌号码
+		.append("<HPZL>").append(vo.getPlateType()).append("</HPZL>")  							//号牌种类
+		.append("<FJSZD>").append(vo.getPlaceOfDomicile()).append("</FJSZD>")  					//户籍所在地
+		.append("<JZZHM>").append(vo.getResidenceNo()).append("</JZZHM>")  						//居住证号码*
+		.append("<ZSXXDZ>").append(vo.getAddress()).append("</ZSXXDZ>")  						//住所地址
+		.append("<SJRXM>").append(vo.getReceiverName()).append("</SJRXM>")  					//收件人姓名
+		.append("<SJRDZ>").append(vo.getReceiverAddress()).append("</SJRDZ>")  					//收件人地址
+		.append("<SJRSJ>").append(vo.getReceiverNumber()).append("</SJRSJ>")  					//收件人手机
+		.append("<JZZA>").append(vo.getJZZA()).append("</JZZA>")  								//居住证正面图片*
+		.append("<JZZB>").append(vo.getJZZB()).append("</JZZB>")  								//居住证反面图片*
+		.append("<PHOTO31>").append(vo.getPHOTO31()).append("</PHOTO31>")						//境外人员临住表*
+		.append("<PHOTO9>").append(vo.getPHOTO9()).append("</PHOTO9>")  						//身份证（正面）
+		.append("<PHOTO10>").append(vo.getPHOTO10()).append("</PHOTO10>")  						//身份证（反面）
+		.append("<DJZSFYJ>").append(vo.getDJZSFYJ()).append("</DJZSFYJ>")  						//机动车登记证书
+		.append("<WWLRIP>").append(vo.getIp()).append("</WWLRIP>")  							//外网录入ip
+		.append("<LYBZ>").append(vo.getSourceOfCertification()).append("</LYBZ>")  				//申请来源
+		.append("<LOGIN_USER>").append(vo.getLoginUserIdentityCard()).append("</LOGIN_USER>")	//登录用户身份证号码
+		.append("</request>");
+		String EZ1002RepXml = sb.toString();
+		JSONObject EZ1002RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1002, EZ1002RepXml, userId, userPwd, key);
+		return EZ1002RepJson;
 
 	}
 }

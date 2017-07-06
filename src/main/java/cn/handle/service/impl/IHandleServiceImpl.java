@@ -8,9 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-
 import cn.handle.bean.vo.ApplyCarTemporaryLicenceVo;
 import cn.handle.bean.vo.ApplyGatePassVo;
 import cn.handle.bean.vo.ApplyInspectionMarkVo;
@@ -23,11 +22,14 @@ import cn.handle.bean.vo.IocomotiveCarChangeContactVo;
 import cn.handle.bean.vo.IocomotiveCarReplaceVo;
 import cn.handle.bean.vo.RenewalDriverLicenseVo;
 import cn.handle.bean.vo.RepairOrReplaceDriverLicenseVo;
+import cn.handle.bean.vo.ReplaceMotorVehicleLicensePlateVo;
 import cn.handle.bean.vo.VehicleDrivingLicenseVo;
 import cn.handle.cache.impl.IHandleServiceCenterCachedImpl;
 import cn.handle.service.IHandleService;
 import cn.handle.utils.ThirdPartyInterface;
 import cn.sdk.webservice.WebServiceClient;
+import cn.sdk.bean.BaseBean;
+
 
 @SuppressWarnings(value="all")
 @Service("handleService")
@@ -438,5 +440,36 @@ public class IHandleServiceImpl implements IHandleService{
 			throw e;
 		}
 		return jsonObject;
+	}
+
+	/**
+	 * 补领机动车号牌
+	 * @param vo 补领机动车号牌 申请信息
+	 * @return
+	 * @throws Exception
+	 */
+	public BaseBean replaceMotorVehicleLicensePlate(ReplaceMotorVehicleLicensePlateVo vo) throws Exception {
+		logger.debug("【办理类服务】补领机动车号牌replaceMotorVehicleLicensePlate...");
+		BaseBean baseBean = new BaseBean();
+		try {
+			 String url = iAccountCached.getUrl(); //webservice请求url
+			 String method = iAccountCached.getMethod(); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
+			 String key = iAccountCached.getKey(); //秘钥
+			 
+			 JSONObject EZ1002RepJson = ThirdPartyInterface.replaceMotorVehicleLicensePlate(vo, url, method, userId, userPwd, key);
+			 
+			 String code = EZ1002RepJson.getString("code");
+			 String msg = EZ1002RepJson.getString("msg");
+			 baseBean.setCode(code);
+			 baseBean.setMsg(msg);
+			 
+			 logger.debug("replaceMotorVehicleLicensePlate结果:" + JSON.toJSONString(baseBean));
+		} catch (Exception e) {
+			logger.error("replaceMotorVehicleLicensePlate异常！vehicleDrivingLicenseVo=" + vo, e);
+			throw e;
+		}
+		return baseBean;
 	}
 }
