@@ -35,6 +35,7 @@ public class ThirdPartyInterface {
 	private static final String ywlx1 = "1"; //补领机动车行驶证
 	private static final String ywlx3 = "3"; //补领机动车号牌
 	
+	
 	/**
 	 * 驾驶证年审
 	 * @param args
