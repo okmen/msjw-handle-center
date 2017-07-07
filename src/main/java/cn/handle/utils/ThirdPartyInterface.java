@@ -384,8 +384,8 @@ public class ThirdPartyInterface {
 			.append("<SJRXM>").append(applyInspectionMarkVo.getRecipientName()).append("</SJRXM>")  //收件人姓名
 			.append("<SJRDZ>").append(applyInspectionMarkVo.getRecipientAddress()).append("</SJRDZ>")  //收件人地址
 			.append("<SJRSJ>").append(applyInspectionMarkVo.getRecipientPhone()).append("</SJRSJ>")  //收件人手机
-			.append("<JZZA>").append("").append("</JZZA>")  //居住证正面图片
-			.append("<JZZB>").append("").append("</JZZB>")  //居住证反面图片
+			.append("<JZZA>").append(applyInspectionMarkVo.getJZZA()).append("</JZZA>")  //居住证正面图片
+			.append("<JZZB>").append(applyInspectionMarkVo.getJZZB()).append("</JZZB>")  //居住证反面图片
 			.append("<PHOTO31>").append(applyInspectionMarkVo.getForeignersLiveTable()).append("</PHOTO31>")  //境外人员临住表
 			.append("<PHOTO9>").append(applyInspectionMarkVo.getIdCardImgPositive()).append("</PHOTO9>")  //身份证正面图片
 			.append("<PHOTO10>").append(applyInspectionMarkVo.getIdCardImgNegative()).append("</PHOTO10>")  //身份证反面图片
