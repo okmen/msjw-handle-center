@@ -262,7 +262,7 @@ public class ThirdPartyInterface {
 		sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?><REQUEST>")
 		.append("<YWLX>").append(ywlx6).append("</YWLX>")     //业务类型
 		.append("<JDCSYR>").append(iocomotiveCarChangeContactVo.getName()).append("</JDCSYR>")     //车主姓名
-		.append("<SFZMMC>").append(iocomotiveCarChangeContactVo.getIdentificationNo()).append("</SFZMMC>")  //证件种类
+		.append("<SFZMMC>").append(iocomotiveCarChangeContactVo.getIdentificationNO()).append("</SFZMMC>")  //证件种类
 		.append("<SFZMHM>").append(iocomotiveCarChangeContactVo.getIdentificationNum()).append("</SFZMHM>")  //证件号码
 		.append("<HPHM>").append(iocomotiveCarChangeContactVo.getNumberPlate()).append("</HPHM>")  //号牌号码
 		.append("<HPZL>").append(iocomotiveCarChangeContactVo.getPlateType()).append("</HPZL>")  //号牌种类
