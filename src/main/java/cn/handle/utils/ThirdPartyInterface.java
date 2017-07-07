@@ -472,10 +472,10 @@ public class ThirdPartyInterface {
 		String EZ1002 = "EZ1002";
 		//拼装xml数据
 		StringBuffer sb = new StringBuffer();
-		sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?><request>")
+		sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?><REQUEST>")
 		.append("<YWLX>").append(ywlx3).append("</YWLX>")     									//业务类型
 		.append("<JDCSYR>").append(vo.getName()).append("</JDCSYR>")     						//机动车所有人
-		.append("<SFZMHM>").append(vo.getIdentityCard()).append("</SFZMHM>")  					//证件号码
+		.append("<SFZMHM>").append(vo.getCarOwnerIdentityCard()).append("</SFZMHM>")  			//证件号码
 		.append("<HPHM>").append(vo.getNumberPlate()).append("</HPHM>")  						//号牌号码
 		.append("<HPZL>").append(vo.getPlateType()).append("</HPZL>")  							//号牌种类
 		.append("<FJSZD>").append(vo.getPlaceOfDomicile()).append("</FJSZD>")  					//户籍所在地
@@ -493,10 +493,9 @@ public class ThirdPartyInterface {
 		.append("<WWLRIP>").append(vo.getIp()).append("</WWLRIP>")  							//外网录入ip
 		.append("<LYBZ>").append(vo.getSourceOfCertification()).append("</LYBZ>")  				//申请来源
 		.append("<LOGIN_USER>").append(vo.getLoginUserIdentityCard()).append("</LOGIN_USER>")	//登录用户身份证号码
-		.append("</request>");
+		.append("</REQUEST>");
 		String EZ1002RepXml = sb.toString();
 		JSONObject EZ1002RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1002, EZ1002RepXml, userId, userPwd, key);
 		return EZ1002RepJson;
-
 	}
 }

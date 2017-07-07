@@ -460,8 +460,8 @@ public class IHandleServiceImpl implements IHandleService{
 			 
 			 JSONObject EZ1002RepJson = ThirdPartyInterface.replaceMotorVehicleLicensePlate(vo, url, method, userId, userPwd, key);
 			 
-			 String code = EZ1002RepJson.getString("code");
-			 String msg = EZ1002RepJson.getString("msg");
+			 String code = EZ1002RepJson.getString("CODE");
+			 String msg = EZ1002RepJson.getString("MSG");
 			 baseBean.setCode(code);
 			 baseBean.setMsg(msg);
 			 
@@ -472,4 +472,5 @@ public class IHandleServiceImpl implements IHandleService{
 		}
 		return baseBean;
 	}
+	
 }
