@@ -1,6 +1,7 @@
 package cn.handle.test;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.junit.Test;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.alibaba.fastjson.JSONObject;
 
 import cn.handle.bean.vo.ApplyInspectionMarkVo;
 import cn.handle.bean.vo.ApplyRemoteEntrustedBusinessVo;
@@ -28,6 +31,82 @@ public class TestHandleService {
     @Qualifier("handleService")
     private IHandleService handleService;
 	 
+	/**
+	 * 取消六年免检预约
+	 * 取消机动车
+	 * @param bookerNumber
+	 * @param platNumber
+	 * @throws Exception DateUtil.formatDateTime(new Date())
+	 */
+	@Test
+	public void testcancelVehicleInspection() throws Exception{
+		LinkedHashMap<String, Object> map = new LinkedHashMap<>();
+		map.put("bookerNumber", "P170706047");
+		map.put("platNumber", "粤B6F7M1");
+		JSONObject jsonObject = handleService.cancelVehicleInspection(map);
+		System.out.println(jsonObject);
+	}
+	
+	
+	/**
+	 * 获取机动车预约信息
+	 * @throws Exception 
+	 */
+	@Test
+	public void testgetVehicleInspection() throws Exception{
+		LinkedHashMap<String, Object> map = new LinkedHashMap<>();
+		map.put("bookerNumber", "P170706047");
+		map.put("platNumber", "粤B6F7M1");
+		map.put("driveLicenseNumber", "");
+		JSONObject jsonObject = handleService.getVehicleInspection(map);
+		System.out.println(jsonObject);
+	}
+	
+	
+	/**
+	 * 获取车辆类型列表
+	 * @throws Exception
+	 */
+	@Test
+	public void testgetCarTypes() throws Exception {
+		LinkedHashMap<String, Object> map = new LinkedHashMap<>();
+		map.put("arg0", "");
+		map.put("arg1", "");
+		JSONObject carTypes = handleService.getCarTypes(map);
+		System.out.println(carTypes);
+	}
+	/**
+	 * 六年免检预约
+	 * @throws Exception
+	 */
+	@Test
+	public void testcreateVehicleInspection() throws Exception{
+		LinkedHashMap<String, Object> map = new LinkedHashMap<>();
+		map.put("platNumber","粤B6F7M1");
+		map.put("name","王玉璞");
+		map.put("personType","1");
+		map.put("driveLicenseNumber","822198502074110");
+		map.put("mobile","15920071829");
+		map.put("telno","");
+		map.put("recipientsName","王玉璞");
+		map.put("recipientsMobile","15920071829");
+		map.put("postCode","123456");
+		map.put("postAddr","11");
+		map.put("effectiveDate","2017-01-01");
+		map.put("terminationDate","2017-12-12");
+		map.put("inform","1");
+		map.put("bookerName","王玉璞");
+		map.put("bookerIdNumber","15920071829");
+		map.put("bookerType","0");
+		map.put("carTypeId","e4e48584399473d20139947fff4e2b2e");
+		map.put("arg0","");
+		map.put("arg1","");
+		map.put("arg2","");
+		map.put("arg3","");
+		map.put("arg4","");
+		JSONObject jsonObject = handleService.createVehicleInspection(map);
+		System.out.println(jsonObject);
+	} 
 	/**
 	 * 驾驶人联系方式变更
 	 * @throws Exception 
