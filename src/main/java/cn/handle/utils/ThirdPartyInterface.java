@@ -265,7 +265,7 @@ public class ThirdPartyInterface {
 		.append("<SFZMMC>").append(iocomotiveCarChangeContactVo.getIdentificationNO()).append("</SFZMMC>")  //证件种类
 		.append("<SFZMHM>").append(iocomotiveCarChangeContactVo.getIdentificationNum()).append("</SFZMHM>")  //证件号码
 		.append("<HPHM>").append(iocomotiveCarChangeContactVo.getNumberPlate()).append("</HPHM>")  //号牌号码
-		.append("<HPZL>").append(iocomotiveCarChangeContactVo.getPlateType()).append("</HPZL>")  //号牌种类
+		.append("<HPZL>").append(iocomotiveCarChangeContactVo.getCartype()).append("</HPZL>")  //车辆种类
 		.append("<FJSZD>").append(iocomotiveCarChangeContactVo.getPlaceOfDomicile()).append("</FJSZD>")  //户籍所在地
 		.append("<CLSBDH>").append(iocomotiveCarChangeContactVo.getBehindTheFrame4Digits()).append("</CLSBDH>")  //车架号
 		.append("<YDDH>").append(iocomotiveCarChangeContactVo.getMobilephone()).append("</YDDH>")  //变更号码
@@ -299,7 +299,7 @@ public class ThirdPartyInterface {
 		.append("<JDCSYR>").append(iocomotiveCarReplaceVo.getName()).append("</JDCSYR>")     //车主姓名
 		.append("<SFZMHM>").append(iocomotiveCarReplaceVo.getIdentificationNum()).append("</SFZMHM>")  //证件号码
 		.append("<HPHM>").append(iocomotiveCarReplaceVo.getNumberPlate()).append("</HPHM>")  //号牌号码
-		.append("<HPZL>").append(iocomotiveCarReplaceVo.getPlateType()).append("</HPZL>")  //号牌种类
+		.append("<HPZL>").append(iocomotiveCarReplaceVo.getCartype()).append("</HPZL>")  //号牌种类
 		.append("<FJSZD>").append(iocomotiveCarReplaceVo.getPlaceOfDomicile()).append("</FJSZD>")  //户籍所在地
 		.append("<ZSXXDZ>").append(iocomotiveCarReplaceVo.getAddress()).append("</ZSXXDZ>")  //住所详细地址
 		.append("<SJRXM>").append(iocomotiveCarReplaceVo.getReceiverName()).append("</SJRXM>")  //收件人姓名
