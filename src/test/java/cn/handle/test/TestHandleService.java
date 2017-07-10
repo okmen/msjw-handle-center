@@ -338,15 +338,15 @@ public class TestHandleService {
 	public void complementTheMotorVehicleDrivingLicense() throws Exception{
 		//http://192.168.1.245:8080/web/user/driverLicenseAnnualVerification.html?identificationNO=A&name=张宇帆&IDcard=445222199209020034&mobilephone=15920050177&placeOfDomicile=深圳&receiverName=11&receiverNumber=15920050177&mailingAddress=深圳市宝安区&IDCardPhoto1=111&IDCardPhoto2=222&livePhoto1=111&livePhoto2=222 &educationDrawingtable=111&foreignersLiveTable=222&postalcode=1&loginUser=445222199209020034&sourceOfCertification=C&userSource=C
 		VehicleDrivingLicenseVo vehicleDrivingLicenseVo = new VehicleDrivingLicenseVo();
-		vehicleDrivingLicenseVo.setName("王玉璞");
-		vehicleDrivingLicenseVo.setIDcard("622822198502074110");
-		vehicleDrivingLicenseVo.setLicensePlate("粤B8888");
+		vehicleDrivingLicenseVo.setName("杨明畅");
+		vehicleDrivingLicenseVo.setIDcard("440301199002101119");
+		vehicleDrivingLicenseVo.setLicensePlate("粤B8885");
 		vehicleDrivingLicenseVo.setLicensePlateTpye("02");
 		vehicleDrivingLicenseVo.setPlaceOfDomicile("1");
 		vehicleDrivingLicenseVo.setAddress("xxxxxx");
 		vehicleDrivingLicenseVo.setReceiverName("XXXX");
 		vehicleDrivingLicenseVo.setReceiverNumber("13666666666");
-		vehicleDrivingLicenseVo.setMailingAddress("深圳市南山区xxx");
+		vehicleDrivingLicenseVo.setMailingAddress("深圳市南山区测试数据");
 		vehicleDrivingLicenseVo.setLivePhoto1("11111111111111111");
 		vehicleDrivingLicenseVo.setLivePhoto2("222222222");
 		vehicleDrivingLicenseVo.setIDCardPhoto1("333333333");
