@@ -21,6 +21,7 @@ import cn.handle.bean.vo.RepairOrReplaceDriverLicenseVo;
 import cn.handle.bean.vo.ReplaceMotorVehicleLicensePlateVo;
 import cn.handle.bean.vo.VehicleDrivingLicenseVo;
 import cn.sdk.bean.BaseBean;
+import cn.sdk.util.StringUtil;
 import cn.sdk.webservice.WebServiceClient;
 
 /**
@@ -399,8 +400,15 @@ public class ThirdPartyInterface {
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1002, sb.toString(), userId, userPwd, key);
 		String code = EZ1001RepJson.getString("CODE");
 		String msg = EZ1001RepJson.getString("MSG");
+		String body=EZ1001RepJson.getString("BODY");
+		String cId="";
+		if(!StringUtil.isEmpty(body)){
+			JSONObject number=JSONObject.parseObject(body);
+			cId=number.getString("CID");
+		}
 		map.put("code", code);
 		map.put("msg", msg);
+		map.put("number", cId);
 		return map;
 	}
 
@@ -434,8 +442,15 @@ public class ThirdPartyInterface {
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, WT1001, sb.toString(), userId, userPwd, key);
 		String code = EZ1001RepJson.getString("CODE");
 		String msg = EZ1001RepJson.getString("MSG");
+		String body=EZ1001RepJson.getString("BODY");
+		String cId="";
+		if(!StringUtil.isEmpty(body)){
+			JSONObject number=JSONObject.parseObject(body);
+			cId=number.getString("CID");
+		}
 		map.put("code", code);
 		map.put("msg", msg);
+		map.put("number", cId);
 		return map;
 	}
 
