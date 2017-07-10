@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
 
 import cn.handle.bean.vo.ApplyCarTemporaryLicenceVo;
 import cn.handle.bean.vo.ApplyGatePassVo;
@@ -462,7 +463,7 @@ public class ThirdPartyInterface {
 	
 	/**
 	 * 补领机动车号牌
-	 * @param vehicleDrivingLicenseVo
+	 * @param vo 补领机动车号牌 申请信息
 	 * @return
 	 * @throws Exception
 	 */
