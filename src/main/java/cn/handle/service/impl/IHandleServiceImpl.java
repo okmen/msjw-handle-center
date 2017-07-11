@@ -38,6 +38,15 @@ public class IHandleServiceImpl implements IHandleService{
 	
 	@Autowired
 	private IHandleServiceCenterCachedImpl iAccountCached;
+	
+	@Override
+	public String getTemplateSendUrl() {
+		String url = iAccountCached.getTemplateSendUrl();
+		logger.info("获取到的域名地址是：" + url);
+		return url;
+	}
+	
+	
 	@Override
 	public Map<String, String> driverLicenseAnnualVerification(
 			DriverLicenseAnnualVerificationVo driverLicenseAnnualVerificationVo)  throws Exception{
@@ -493,5 +502,4 @@ public class IHandleServiceImpl implements IHandleService{
 		}
 		return map;
 	}
-	
 }

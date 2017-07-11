@@ -40,6 +40,9 @@ protected Logger log = Logger.getLogger(this.getClass());
     @Value("${stcUrl}")
     private String stcUrl;
     
+    @Value("${templateSendUrl}")
+    private String templateSendUrl;
+    
 	public String getUserid() {
 		return userid;
 	}
@@ -69,5 +72,9 @@ protected Logger log = Logger.getLogger(this.getClass());
 		return stcUrl;
 	}
 
+
+	public String getTemplateSendUrl() {
+		return templateSendUrl;
+	}
 	
 }
