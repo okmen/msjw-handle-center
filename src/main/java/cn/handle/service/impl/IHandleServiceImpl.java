@@ -29,6 +29,7 @@ import cn.handle.service.IHandleService;
 import cn.handle.utils.ThirdPartyInterface;
 import cn.sdk.webservice.WebServiceClient;
 import cn.sdk.bean.BaseBean;
+import cn.sdk.util.MsgCode;
 
 
 @SuppressWarnings(value="all")
@@ -471,6 +472,12 @@ public class IHandleServiceImpl implements IHandleService{
 			 
 			 String code = EZ1002RepJson.getString("CODE");
 			 String msg = EZ1002RepJson.getString("MSG");
+			 
+			 if(MsgCode.success.equals(code)){
+				 String cid = EZ1002RepJson.getJSONObject("BODY").getString("CID");
+				 baseBean.setData(cid);
+			 }
+			 
 			 baseBean.setCode(code);
 			 baseBean.setMsg(msg);
 			 
