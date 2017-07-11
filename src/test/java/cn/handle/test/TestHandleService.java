@@ -25,6 +25,7 @@ import cn.handle.bean.vo.RenewalDriverLicenseVo;
 import cn.handle.bean.vo.RepairOrReplaceDriverLicenseVo;
 import cn.handle.bean.vo.VehicleDrivingLicenseVo;
 import cn.handle.service.IHandleService;
+import cn.sdk.webservice.WebServiceClient;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:junit-test.xml" })
@@ -32,7 +33,18 @@ public class TestHandleService {
 	@Autowired
     @Qualifier("handleService")
     private IHandleService handleService;
-	 
+	/**
+	 * 首违免罚查询
+	 */
+	 @Test
+	 public void testgetResultOfFirstIllegalImpunity() throws Exception{
+		 String numberPlate = "粤B6F7M1";
+		 String plateType = "02";
+		 String id = "";
+		 String  queryType = "1";
+		 Map<String, Object> map = handleService.getResultOfFirstIllegalImpunity(numberPlate, plateType, id, queryType);
+		 System.out.println(map);
+	 }
 	/**
 	 * 取消六年免检预约
 	 * 取消机动车
@@ -42,11 +54,25 @@ public class TestHandleService {
 	 */
 	@Test
 	public void testcancelVehicleInspection() throws Exception{
-		LinkedHashMap<String, Object> map = new LinkedHashMap<>();
+		JSONObject jsonObject = new JSONObject();
+		try {
+			String method = "getBusinessTypes";
+			LinkedHashMap<String, Object> map = new LinkedHashMap<>();
+			map.put("type", "1");
+			map.put("part", "");
+			map.put("arg0", "");
+			map.put("arg1", "");
+			String url = "http://cheguansuo.chudaokeji.com/book/services/wsBookService";
+			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
+			System.out.println(jsonObject);
+		} catch (Exception e) {
+			throw e;
+		}
+		/*LinkedHashMap<String, Object> map = new LinkedHashMap<>();
 		map.put("bookerNumber", "P170706047");
 		map.put("platNumber", "粤B6F7M1");
 		JSONObject jsonObject = handleService.cancelVehicleInspection(map);
-		System.out.println(jsonObject);
+		System.out.println(jsonObject);*/
 	}
 	
 	
@@ -58,7 +84,7 @@ public class TestHandleService {
 	public void testgetVehicleInspection() throws Exception{
 		LinkedHashMap<String, Object> map = new LinkedHashMap<>();
 		map.put("bookerNumber", "P170706047");
-		map.put("platNumber", "粤B6F7M1");
+		map.put("platNumber", "");
 		map.put("driveLicenseNumber", "");
 		JSONObject jsonObject = handleService.getVehicleInspection(map);
 		System.out.println(jsonObject);

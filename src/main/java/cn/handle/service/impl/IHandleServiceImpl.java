@@ -472,5 +472,26 @@ public class IHandleServiceImpl implements IHandleService{
 		}
 		return baseBean;
 	}
+
+
+	@Override
+	public Map<String, Object> getResultOfFirstIllegalImpunity(String numberPlate, String plateType, String id,
+			String queryType) throws Exception {
+		Map<String, Object> map = new HashMap<>();
+		try {
+			 String url = iAccountCached.getUrl(); //webservice请求url
+			 String method = iAccountCached.getMethod(); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
+			 String key = iAccountCached.getKey(); //秘钥
+			 
+			 map = ThirdPartyInterface.getResultOfFirstIllegalImpunity(numberPlate,plateType, id,
+						queryType, url, method, userId, userPwd, key);
+		} catch (Exception e) {
+			logger.error("getResultOfFirstIllegalImpunity异常！numberPlate=" + numberPlate+"plateType="+plateType+"id="+id+"queryType="+queryType, e);
+			throw e;
+		}
+		return map;
+	}
 	
 }

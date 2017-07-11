@@ -521,4 +521,14 @@ public class ThirdPartyInterface {
 		JSONObject EZ1002RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1002, EZ1002RepXml, userId, userPwd, key);
 		return EZ1002RepJson;
 	}
+	
+	public static Map<String, Object> getResultOfFirstIllegalImpunity(String numberPlate ,String plateType , String id ,String queryType ,String url,
+			String method, String userId, String userPwd, String key)throws Exception{
+		 
+		String swmf = "swmf";
+		String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><REQUEST><hphm>"+numberPlate+"</hphm><hpzl>"+plateType+"</hpzl><wfxh>"+id+"</wfxh><cxlx>"+queryType+"</cxlx></REQUEST>";
+		JSONObject jsonObject = WebServiceClient.getInstance().requestWebService(url, method, swmf, xml, userId, userPwd, key);
+		
+		return null;
+	}
 }
