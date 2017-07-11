@@ -13,6 +13,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSONObject;
 
+import cn.handle.bean.vo.ApplyCarTemporaryLicenceVo;
+import cn.handle.bean.vo.ApplyGatePassVo;
 import cn.handle.bean.vo.ApplyInspectionMarkVo;
 import cn.handle.bean.vo.ApplyRemoteEntrustedBusinessVo;
 import cn.handle.bean.vo.DriverChangeContactVo;
@@ -432,6 +434,66 @@ public class TestHandleService {
 		vo.setSourceOfCertification("C");
 		Map<String, String > map = new HashMap<>();
 		map = handleService.inspectionDeclarationQuery("440301199002101119","C");
+		System.out.println(map);
+	}
+	
+	/**
+	 * @Title: testApplyGatePass
+	 * @Description: TODO(申请通行证(外地车))
+	 * @param @throws Exception    参数
+	 * @return void    返回类型
+	 * @throws
+	 */
+	@Test
+	public void testApplyGatePass() throws Exception{
+		ApplyGatePassVo vo = new ApplyGatePassVo();
+		vo.setAbbreviation("粤");
+		vo.setNumberPlate("b1234");
+		vo.setPlateType("K13");
+		vo.setCartype("11");
+		vo.setVin("123123123123123");
+		vo.setUserName("测试张三");
+		vo.setIdentityCard("");
+		vo.setMobilephone("13000231324");
+		vo.setApplyDate("2017-07-11");
+		
+		Map<String, String > map = new HashMap<>();
+		map = handleService.applyGatePass(vo);
+		System.out.println(map);
+	}
+	
+	/**
+	 * @Title: testApplyCarTemporaryLicence
+	 * @Description: TODO(申请机动车临牌)
+	 * @param @throws Exception    参数
+	 * @return void    返回类型
+	 * @throws
+	 */
+	@Test
+	public void testApplyCarTemporaryLicence() throws Exception{
+		ApplyCarTemporaryLicenceVo vo = new ApplyCarTemporaryLicenceVo();
+		vo.setUserName("测试张三");
+		vo.setIdentityCard("31232123123213123");
+		vo.setCartModels("a123");
+		vo.setCartype("c1");
+		vo.setEngineNumber("123421");
+		vo.setVin("2222");
+		vo.setCarOrigin("A");
+		vo.setReceiverName("测试张三");
+		vo.setReceiverAddress("深圳市南山区");
+		vo.setReceiverNumber("13111111111");
+		vo.setPHOTO9("aa");
+		vo.setPHOTO10("aa");
+		vo.setPHOTO26("");
+		vo.setPHOTO27("");
+		vo.setPHOTO28("");
+		vo.setPHOTO29("");
+		vo.setPHOTO31("");
+		vo.setIp("123213");
+		vo.setSourceOfCertification("C");
+		
+		Map<String, String > map = new HashMap<>();
+		map = handleService.applyCarTemporaryLicence(vo);
 		System.out.println(map);
 	}
 }
