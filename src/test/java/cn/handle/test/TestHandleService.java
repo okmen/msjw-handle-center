@@ -38,10 +38,10 @@ public class TestHandleService {
 	 */
 	 @Test
 	 public void testgetResultOfFirstIllegalImpunity() throws Exception{
-		 String numberPlate = "粤B6F7M1";
-		 String plateType = "02";
-		 String id = "";
-		 String  queryType = "1";
+		 String numberPlate = "";
+		 String plateType = "";
+		 String id = "4403197900206196";
+		 String  queryType = "2";
 		 Map<String, Object> map = handleService.getResultOfFirstIllegalImpunity(numberPlate, plateType, id, queryType);
 		 System.out.println(map);
 	 }

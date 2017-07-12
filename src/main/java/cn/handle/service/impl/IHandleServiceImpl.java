@@ -491,7 +491,7 @@ public class IHandleServiceImpl implements IHandleService{
 
 
 	@Override
-	public Map<String, Object> getResultOfFirstIllegalImpunity(String numberPlate, String plateType, String id,
+	public Map<String, Object> getResultOfFirstIllegalImpunity(String numberPlate, String plateType, String illegalNumber,
 			String queryType) throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		try {
@@ -501,10 +501,10 @@ public class IHandleServiceImpl implements IHandleService{
 			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
 			 String key = iAccountCached.getKey(); //秘钥
 			 
-			 map = ThirdPartyInterface.getResultOfFirstIllegalImpunity(numberPlate,plateType, id,
+			 map = ThirdPartyInterface.getResultOfFirstIllegalImpunity(numberPlate,plateType, illegalNumber,
 						queryType, url, method, userId, userPwd, key);
 		} catch (Exception e) {
-			logger.error("getResultOfFirstIllegalImpunity异常！numberPlate=" + numberPlate+"plateType="+plateType+"id="+id+"queryType="+queryType, e);
+			logger.error("getResultOfFirstIllegalImpunity异常！numberPlate=" + numberPlate+"plateType="+plateType+"illegalNumber="+illegalNumber+"queryType="+queryType, e);
 			throw e;
 		}
 		return map;

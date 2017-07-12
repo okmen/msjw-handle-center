@@ -1,8 +1,13 @@
 package cn.handle.utils;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.JsonObject;
 
@@ -19,8 +24,10 @@ import cn.handle.bean.vo.IocomotiveCarReplaceVo;
 import cn.handle.bean.vo.RenewalDriverLicenseVo;
 import cn.handle.bean.vo.RepairOrReplaceDriverLicenseVo;
 import cn.handle.bean.vo.ReplaceMotorVehicleLicensePlateVo;
+import cn.handle.bean.vo.ResultOfFirstIllegalImpunityVo;
 import cn.handle.bean.vo.VehicleDrivingLicenseVo;
 import cn.sdk.bean.BaseBean;
+import cn.sdk.util.DateUtil2;
 import cn.sdk.util.StringUtil;
 import cn.sdk.webservice.WebServiceClient;
 
@@ -522,13 +529,127 @@ public class ThirdPartyInterface {
 		return EZ1002RepJson;
 	}
 	
-	public static Map<String, Object> getResultOfFirstIllegalImpunity(String numberPlate ,String plateType , String id ,String queryType ,String url,
-			String method, String userId, String userPwd, String key)throws Exception{
-		 
+	/**
+	 * 首违免罚查询
+	 * 
+	 * @param numberPlate
+	 * @param plateType
+	 * @param id
+	 * @param queryType
+	 * @param url
+	 * @param method
+	 * @param userId
+	 * @param userPwd
+	 * @param key
+	 * @return
+	 * @throws Exception
+	 */
+	public static Map<String, Object> getResultOfFirstIllegalImpunity(String numberPlate, String plateType,
+			String illegalNumber, String queryType, String url, String method, String userId, String userPwd,
+			String key) throws Exception {
+		Map<String, Object> map = new HashMap<>();
 		String swmf = "swmf";
-		String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><REQUEST><hphm>"+numberPlate+"</hphm><hpzl>"+plateType+"</hpzl><wfxh>"+id+"</wfxh><cxlx>"+queryType+"</cxlx></REQUEST>";
-		JSONObject jsonObject = WebServiceClient.getInstance().requestWebService(url, method, swmf, xml, userId, userPwd, key);
-		
-		return null;
+		String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><request><hphm>" + numberPlate + "</hphm><hpzl>"
+				+ plateType + "</hpzl><wfxh>" + illegalNumber + "</wfxh><cxlx>" + queryType + "</cxlx></request>";
+		JSONObject jsonObject = WebServiceClient.getInstance().requestWebService(url, method, swmf, xml, userId,
+				userPwd, key);
+		String code = jsonObject.getString("code");
+		String msg = jsonObject.getString("msg");
+		if ("0000".equals(code)) {
+			jsonObject = jsonObject.getJSONObject("body");
+			List<ResultOfFirstIllegalImpunityVo> resultOfFirstIllegalImpunityVos = new ArrayList<>();
+			if (jsonObject.toJSONString().contains("[")) {
+				// 多条
+				JSONArray jsonArray = jsonObject.getJSONArray("row");
+				Iterator iterator = jsonArray.iterator();
+				while (iterator.hasNext()) {
+					ResultOfFirstIllegalImpunityVo resultOfFirstIllegalImpunityVo = new ResultOfFirstIllegalImpunityVo();
+					JSONObject json = (JSONObject) iterator.next();
+					String id2 = json.getString("id");
+					String numberPlate2 = json.getString("hphm");
+					String plateType2 = json.getString("hpzl");
+					String illegalTime = json.getString("wfsj");
+					String illegalAddress = json.getString("wfdz");
+					String illegalSite = json.getString("wfdd");
+					String sectionsCode = json.getString("lddm");
+					String illegalAction = json.getString("wfxw");
+					String illegalContent = json.getString("wfnr");
+					String illegalMoney = json.getString("fkje");
+					String illegalCore = json.getString("wfjfs");
+					String inputTime = json.getString("lrsj");
+					String foundAuthority = json.getString("fxjg");
+					String foundAuthorityName = json.getString("fxjgmc");
+					String illegalNumber2 = json.getString("xh");
+					String productiveTime = json.getString("yssj");
+					String updateTime = json.getString("gxsj");
+					resultOfFirstIllegalImpunityVo.setFoundAuthority(foundAuthorityName);
+					resultOfFirstIllegalImpunityVo.setFoundAuthorityName(foundAuthorityName);
+					resultOfFirstIllegalImpunityVo.setId(id2);
+					resultOfFirstIllegalImpunityVo.setIllegalAction(illegalAction);
+					resultOfFirstIllegalImpunityVo.setIllegalAddress(illegalAddress);
+					resultOfFirstIllegalImpunityVo.setIllegalContent(illegalContent);
+					resultOfFirstIllegalImpunityVo.setIllegalCore(illegalCore);
+					resultOfFirstIllegalImpunityVo.setIllegalMoney(illegalMoney);
+					resultOfFirstIllegalImpunityVo.setIllegalNumber(illegalNumber2);
+					resultOfFirstIllegalImpunityVo.setIllegalSite(illegalSite);
+					resultOfFirstIllegalImpunityVo.setIllegalTime(illegalTime);
+					resultOfFirstIllegalImpunityVo.setInputTime(inputTime);
+					resultOfFirstIllegalImpunityVo.setNumberPlate(numberPlate2);
+					resultOfFirstIllegalImpunityVo.setPlateType(plateType2);
+					resultOfFirstIllegalImpunityVo.setProductiveTime(productiveTime);
+					resultOfFirstIllegalImpunityVo.setSectionsCode(sectionsCode);
+					resultOfFirstIllegalImpunityVo.setUpdateTime(updateTime);
+					resultOfFirstIllegalImpunityVos.add(resultOfFirstIllegalImpunityVo);
+				}
+
+			} else {
+				ResultOfFirstIllegalImpunityVo resultOfFirstIllegalImpunityVo = new ResultOfFirstIllegalImpunityVo();
+				JSONObject json = jsonObject.getJSONObject("row");
+				String id2 = json.getString("id");
+				String numberPlate2 = json.getString("hphm");
+				String plateType2 = json.getString("hpzl");
+				String illegalTime = json.getString("wfsj");
+				String illegalAddress = json.getString("wfdz");
+				String illegalSite = json.getString("wfdd");
+				String sectionsCode = json.getString("lddm");
+				String illegalAction = json.getString("wfxw");
+				String illegalContent = json.getString("wfnr");
+				String illegalMoney = json.getString("fkje");
+				String illegalCore = json.getString("wfjfs");
+				String inputTime = json.getString("lrsj");
+				String foundAuthority = json.getString("fxjg");
+				String foundAuthorityName = json.getString("fxjgmc");
+				String illegalNumber2 = json.getString("xh");
+				String productiveTime = json.getString("yssj");
+				String updateTime = json.getString("gxsj");
+				resultOfFirstIllegalImpunityVo.setFoundAuthority(foundAuthorityName);
+				resultOfFirstIllegalImpunityVo.setFoundAuthorityName(foundAuthorityName);
+				resultOfFirstIllegalImpunityVo.setId(id2);
+				resultOfFirstIllegalImpunityVo.setIllegalAction(illegalAction);
+				resultOfFirstIllegalImpunityVo.setIllegalAddress(illegalAddress);
+				resultOfFirstIllegalImpunityVo.setIllegalContent(illegalContent);
+				resultOfFirstIllegalImpunityVo.setIllegalCore(illegalCore);
+				resultOfFirstIllegalImpunityVo.setIllegalMoney(illegalMoney);
+				resultOfFirstIllegalImpunityVo.setIllegalNumber(illegalNumber2);
+				resultOfFirstIllegalImpunityVo.setIllegalSite(illegalSite);
+				resultOfFirstIllegalImpunityVo.setIllegalTime(illegalTime);
+				resultOfFirstIllegalImpunityVo.setInputTime(inputTime);
+				resultOfFirstIllegalImpunityVo.setNumberPlate(numberPlate2);
+				resultOfFirstIllegalImpunityVo.setPlateType(plateType2);
+				resultOfFirstIllegalImpunityVo.setProductiveTime(productiveTime);
+				resultOfFirstIllegalImpunityVo.setSectionsCode(sectionsCode);
+				resultOfFirstIllegalImpunityVo.setUpdateTime(updateTime);
+				resultOfFirstIllegalImpunityVos.add(resultOfFirstIllegalImpunityVo);
+			}
+			map.put("code", code);
+			map.put("data", resultOfFirstIllegalImpunityVos);
+
+		} else {
+			map.put("code", code);
+			map.put("msg", msg);
+			map.put("data", null);
+		}
+
+		return map;
 	}
 }
