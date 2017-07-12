@@ -57,6 +57,11 @@ public class ThirdPartyInterface {
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1001, EZ1001RepXml, userId, userPwd, key);
 		String code = EZ1001RepJson.getString("CODE");
 		String msg = EZ1001RepJson.getString("MSG");
+		if ("0000".equals(code)) {
+			EZ1001RepJson = EZ1001RepJson.getJSONObject("BODY");
+			String waterNumber = EZ1001RepJson.getString("CID");
+			map.put("waterNumber", waterNumber);
+		}
 		map.put("code", code);
 		map.put("msg", msg);
 		return map;
@@ -76,6 +81,11 @@ public class ThirdPartyInterface {
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1001, EZ1001RepXml, userId, userPwd, key);
 		String code = EZ1001RepJson.getString("CODE");
 		String msg = EZ1001RepJson.getString("MSG");
+		if ("0000".equals(code)) {
+			EZ1001RepJson = EZ1001RepJson.getJSONObject("BODY");
+			String waterNumber = EZ1001RepJson.getString("CID");
+			map.put("waterNumber", waterNumber);
+		}
 		map.put("code", code);
 		map.put("msg", msg);
 		return map;
@@ -96,6 +106,11 @@ public class ThirdPartyInterface {
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1001, EZ1001RepXml, userId, userPwd, key);
 		String code = EZ1001RepJson.getString("CODE");
 		String msg = EZ1001RepJson.getString("MSG");
+		if ("0000".equals(code)) {
+			EZ1001RepJson = EZ1001RepJson.getJSONObject("BODY");
+			String waterNumber = EZ1001RepJson.getString("CID");
+			map.put("waterNumber", waterNumber);
+		}
 		map.put("code", code);
 		map.put("msg", msg);
 		return map;
@@ -117,6 +132,11 @@ public class ThirdPartyInterface {
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1001, EZ1001RepXml, userId, userPwd, key);
 		String code = EZ1001RepJson.getString("CODE");
 		String msg = EZ1001RepJson.getString("MSG");
+		if ("0000".equals(code)) {
+			EZ1001RepJson = EZ1001RepJson.getJSONObject("BODY");
+			String waterNumber = EZ1001RepJson.getString("CID");
+			map.put("waterNumber", waterNumber);
+		}
 		map.put("code", code);
 		map.put("msg", msg);
 		return map;
@@ -139,6 +159,11 @@ public class ThirdPartyInterface {
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1001, EZ1001RepXml, userId, userPwd, key);
 		String code = EZ1001RepJson.getString("CODE");
 		String msg = EZ1001RepJson.getString("MSG");
+		if ("0000".equals(code)) {
+			EZ1001RepJson = EZ1001RepJson.getJSONObject("BODY");
+			String waterNumber = EZ1001RepJson.getString("CID");
+			map.put("waterNumber", waterNumber);
+		}
 		map.put("code", code);
 		map.put("msg", msg);
 		return map;
@@ -159,6 +184,11 @@ public class ThirdPartyInterface {
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1001, EZ1001RepXml, userId, userPwd, key);
 		String code = EZ1001RepJson.getString("CODE");
 		String msg = EZ1001RepJson.getString("MSG");
+		if ("0000".equals(code)) {
+			EZ1001RepJson = EZ1001RepJson.getJSONObject("BODY");
+			String waterNumber = EZ1001RepJson.getString("CID");
+			map.put("waterNumber", waterNumber);
+		}
 		map.put("code", code);
 		map.put("msg", msg);
 		return map;
@@ -178,6 +208,11 @@ public class ThirdPartyInterface {
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1001, EZ1001RepXml, userId, userPwd, key);
 		String code = EZ1001RepJson.getString("CODE");
 		String msg = EZ1001RepJson.getString("MSG");
+		if ("0000".equals(code)) {
+			EZ1001RepJson = EZ1001RepJson.getJSONObject("BODY");
+			String waterNumber = EZ1001RepJson.getString("CID");
+			map.put("waterNumber", waterNumber);
+		}
 		map.put("code", code);
 		map.put("msg", msg);
 		return map;
