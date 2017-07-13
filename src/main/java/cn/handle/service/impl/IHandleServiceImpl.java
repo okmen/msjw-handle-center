@@ -504,6 +504,7 @@ public class IHandleServiceImpl implements IHandleService{
 			 
 			 map = ThirdPartyInterface.getResultOfFirstIllegalImpunity(numberPlate,plateType, illegalNumber,
 						queryType, url, method, userId, userPwd, key);
+			 logger.info(map.toString());
 		} catch (Exception e) {
 			logger.error("getResultOfFirstIllegalImpunity异常！numberPlate=" + numberPlate+"plateType="+plateType+"illegalNumber="+illegalNumber+"queryType="+queryType, e);
 			throw e;

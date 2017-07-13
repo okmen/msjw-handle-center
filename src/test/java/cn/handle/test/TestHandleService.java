@@ -38,7 +38,7 @@ public class TestHandleService {
 	 */
 	 @Test
 	 public void testgetResultOfFirstIllegalImpunity() throws Exception{
-		 String numberPlate = "";
+		 String numberPlate = null;
 		 String plateType = "";
 		 String id = "4403197900206196";
 		 String  queryType = "2";
@@ -172,15 +172,15 @@ public class TestHandleService {
 		RepairOrReplaceDriverLicenseVo rv = new RepairOrReplaceDriverLicenseVo();
 		rv.setBusinessType("B");
 		rv.setForeignersLiveTable("111");
-		rv.setIDcard("445222199209020034");
+		rv.setIDcard("42138119910422133X");
 		rv.setIDCardPhoto1("111");
 		rv.setIDCardPhoto2("222");
 		rv.setIdentificationNO("A");
 		rv.setIp("11");
 		rv.setLivePhoto1("111");
 		rv.setLivePhoto2("222");
-		rv.setLoginUser("445222199209020034");
-		rv.setMailingAddress("深圳市宝安区");
+		rv.setLoginUser("42138119910422133X");
+		rv.setMailingAddress("深圳市宝安区测试账号");
 		rv.setName("张宇帆");
 		rv.setPhotoReturnNumberString("123456");
 		rv.setPlaceOfDomicile("深圳");
@@ -206,15 +206,15 @@ public class TestHandleService {
 		RepairOrReplaceDriverLicenseVo rv = new RepairOrReplaceDriverLicenseVo();
 		rv.setBusinessType("H");
 		rv.setForeignersLiveTable("111");
-		rv.setIDcard("445222199209020034");
+		rv.setIDcard("42138119910422133X");
 		rv.setIDCardPhoto1("111");
 		rv.setIDCardPhoto2("222");
 		rv.setIdentificationNO("A");
 		rv.setIp("11");
 		rv.setLivePhoto1("111");
 		rv.setLivePhoto2("222");
-		rv.setLoginUser("445222199209020034");
-		rv.setMailingAddress("深圳市宝安区");
+		rv.setLoginUser("42138119910422133X");
+		rv.setMailingAddress("深圳市测试账号");
 		rv.setName("张宇帆");
 		rv.setPhotoReturnNumberString("123456");
 		rv.setPlaceOfDomicile("深圳");
