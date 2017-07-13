@@ -469,6 +469,7 @@ public class IHandleServiceImpl implements IHandleService{
 			 String key = iAccountCached.getKey(); //秘钥
 			 
 			 JSONObject EZ1002RepJson = ThirdPartyInterface.replaceMotorVehicleLicensePlate(vo, url, method, userId, userPwd, key);
+			 logger.debug("【办理类服务】补领机动车号牌 xml转换成json：" + JSON.toJSONString(EZ1002RepJson));
 			 
 			 String code = EZ1002RepJson.getString("CODE");
 			 String msg = EZ1002RepJson.getString("MSG");
