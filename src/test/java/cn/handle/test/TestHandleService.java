@@ -42,7 +42,7 @@ public class TestHandleService {
 		 String plateType = "";
 		 String id = "4403197900206196";
 		 String  queryType = "2";
-		 Map<String, Object> map = handleService.getResultOfFirstIllegalImpunity(numberPlate, plateType, id, queryType);
+		 Map<String, Object> map = handleService.getResultOfFirstIllegalImpunity("", "", "11", "2");
 		 System.out.println(map);
 	 }
 	/**

@@ -501,7 +501,7 @@ public class IHandleServiceImpl implements IHandleService{
 			 String userId = iAccountCached.getUserid(); //webservice登录账号
 			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
 			 String key = iAccountCached.getKey(); //秘钥
-			 
+			 logger.info("numberPlate = " + numberPlate+"plateType="+plateType+"illegalNumber="+illegalNumber+"queryType="+queryType);
 			 map = ThirdPartyInterface.getResultOfFirstIllegalImpunity(numberPlate,plateType, illegalNumber,
 						queryType, url, method, userId, userPwd, key);
 			 logger.info("1返回的数据为+" + map);
