@@ -165,7 +165,7 @@
 				<stcUrl>http://cheguansuo.chudaokeji.com/book/services/wsBookService</stcUrl>
 				
 				<!-- 域名地址 -->
-				<templateSendUrl>http://testh5.chudaokeji.com/h5/#/appointSuccess</templateSendUrl>
+				<templateSendUrl>http://testh5.chudaokeji.com/h5/#/appointSuccess?</templateSendUrl>
 			</properties>
 		</profile>
 
@@ -222,7 +222,7 @@
 				<!-- 车管所 -->
 				<stcUrl>http://cheguansuo.chudaokeji.com/book/services/wsBookService</stcUrl>
 				<!-- 域名地址 -->
-				<templateSendUrl>http://testh5.chudaokeji.com/h5/#/appointSuccess</templateSendUrl>
+				<templateSendUrl>http://testh5.chudaokeji.com/h5/#/appointSuccess?</templateSendUrl>
 			</properties>
 		</profile>
 
@@ -280,7 +280,7 @@
 				<stcUrl>http://app.stc.gov.cn:8092/book/services/wsBookService</stcUrl>
 				
 				<!-- 域名地址 -->
-				<templateSendUrl>http://szjj.u-road.com/h5/#/appointSuccess</templateSendUrl>
+				<templateSendUrl>http://szjj.u-road.com/h5/#/appointSuccess?</templateSendUrl>
 			</properties>
 		</profile>
 	</profiles>
