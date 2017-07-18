@@ -46,6 +46,9 @@ protected Logger log = Logger.getLogger(this.getClass());
     @Value("${cgspassword}")
     private String cgspassword;
     
+    @Value("${stcUrlOld}")
+    private String stcUrlOld;
+    
     @Value("${templateSendUrl}")
     private String templateSendUrl;
     
@@ -91,6 +94,11 @@ protected Logger log = Logger.getLogger(this.getClass());
 
 	public String getCgspassword() {
 		return cgspassword;
+	}
+
+
+	public String getStcUrlOld() {
+		return stcUrlOld;
 	}
 	
 }

@@ -161,10 +161,12 @@
 				<jiaojing.method>xxptSchuding</jiaojing.method>
 				<jiaojing.key>94D863D9BE7FB032E6A19430CC892610</jiaojing.key>
 				
-				<!-- 车管所 -->
+				<!-- 车管所 新接口地址-->
 				<stcUrl>http://app.stc.gov.cn:8092/book/services/wsBookUniformService</stcUrl>
 				<cgsaccount>cdkjcs</cgsaccount>
 				<cgspassword>4028823f5cec9613015d07046034729c</cgspassword>
+				<!-- 车管所老接口地址 -->
+				<stcUrlOld>http://cheguansuo.chudaokeji.com/book/services/wsBookService</stcUrlOld>
 				
 				<!-- 域名地址 -->
 				<templateSendUrl>http://testh5.chudaokeji.com/h5/#/appointSuccess?</templateSendUrl>
@@ -221,10 +223,12 @@
 				<jiaojing.method>xxptSchuding</jiaojing.method>
 				<jiaojing.key>94D863D9BE7FB032E6A19430CC892610</jiaojing.key>
 				
-				<!-- 车管所 -->
+				<!-- 车管所 新接口地址-->
 				<stcUrl>http://app.stc.gov.cn:8092/book/services/wsBookUniformService</stcUrl>
 				<cgsaccount>cdkjcs</cgsaccount>
 				<cgspassword>4028823f5cec9613015d07046034729c</cgspassword>
+				<!-- 车管所老接口地址 -->
+				<stcUrlOld>http://cheguansuo.chudaokeji.com/book/services/wsBookService</stcUrlOld>
 				
 				<!-- 域名地址 -->
 				<templateSendUrl>http://testh5.chudaokeji.com/h5/#/appointSuccess?</templateSendUrl>
@@ -281,10 +285,12 @@
 				<jiaojing.method>xxptSchuding</jiaojing.method>
 				<jiaojing.key>94D863D9BE7FB032E6A19430CC892610</jiaojing.key>
 				
-				<!-- 车管所 -->
+				<!-- 车管所 新接口地址-->
 				<stcUrl>http://app.stc.gov.cn:8092/book/services/wsBookUniformService</stcUrl>
 				<cgsaccount>cdkjcs</cgsaccount>
 				<cgspassword>4028823f5cec9613015d07046034729c</cgspassword>
+				<!-- 车管所老接口地址 -->
+				<stcUrlOld>http://cheguansuo.chudaokeji.com/book/services/wsBookService</stcUrlOld>
 				
 				
 				<!-- 域名地址 -->
