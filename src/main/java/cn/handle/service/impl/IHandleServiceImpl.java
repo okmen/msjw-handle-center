@@ -387,7 +387,7 @@ public class IHandleServiceImpl implements IHandleService{
 		String method = "createVehicleInspection";
 		JSONObject jsonObject = new JSONObject();
 		try {
-			String url = iAccountCached.getStcUrl();
+			String url = iAccountCached.getStcUrlOld();
 			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
 		} catch (Exception e) {
 			logger.error("createVehicleInspection 失败 ， map = " + map);
