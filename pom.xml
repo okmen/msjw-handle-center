@@ -169,7 +169,7 @@
 				<stcUrlOld>http://cheguansuo.chudaokeji.com/book/services/wsBookService</stcUrlOld>
 				
 				<!-- 域名地址 -->
-				<templateSendUrl>http://testh5.chudaokeji.com/h5/#/appointSuccess?</templateSendUrl>
+				<templateSendUrl>http://testh5.chudaokeji.com/h5/#/submitSuccess?</templateSendUrl>
 			</properties>
 		</profile>
 
@@ -231,7 +231,7 @@
 				<stcUrlOld>http://cheguansuo.chudaokeji.com/book/services/wsBookService</stcUrlOld>
 				
 				<!-- 域名地址 -->
-				<templateSendUrl>http://testh5.chudaokeji.com/h5/#/appointSuccess?</templateSendUrl>
+				<templateSendUrl>http://testh5.chudaokeji.com/h5/#/submitSuccess?</templateSendUrl>
 			</properties>
 		</profile>
 
@@ -294,7 +294,7 @@
 				
 				
 				<!-- 域名地址 -->
-				<templateSendUrl>http://szjj.u-road.com/h5/#/appointSuccess?</templateSendUrl>
+				<templateSendUrl>http://szjj.u-road.com/h5/#/submitSuccess?</templateSendUrl>
 			</properties>
 		</profile>
 	</profiles>
