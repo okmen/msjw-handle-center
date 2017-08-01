@@ -403,7 +403,7 @@ public class IHandleServiceImpl implements IHandleService{
 		String method = "getCarTypes";
 		JSONObject jsonObject = new JSONObject();
 		try {
-			String url = iAccountCached.getStcUrl();
+			String url = iAccountCached.getStcUrlOld();
 			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
 		} catch (Exception e) {
 			logger.error("getCarTypes 失败 ， map = " + map);
@@ -423,7 +423,7 @@ public class IHandleServiceImpl implements IHandleService{
 		String method = "cancelVehicleInspection";
 		JSONObject jsonObject = new JSONObject();
 		try {
-			String url = iAccountCached.getStcUrl();
+			String url = iAccountCached.getStcUrlOld();
 			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
 		} catch (Exception e) {
 			logger.error("cancelVehicleInspection 失败， map = " + map);
@@ -433,7 +433,7 @@ public class IHandleServiceImpl implements IHandleService{
 	}
 
 	/**
-	 * 取消机动车六年免检预约
+	 * 查询动车六年免检预约
 	 * 
 	 * @param map
 	 * @return
@@ -443,7 +443,7 @@ public class IHandleServiceImpl implements IHandleService{
 		String method = "getVehicleInspection";
 		JSONObject jsonObject = new JSONObject();
 		try {
-			String url = iAccountCached.getStcUrl();
+			String url = iAccountCached.getStcUrlOld();
 			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
 		} catch (Exception e) {
 			logger.error("getVehicleInspection 失败， map = " + map);
