@@ -290,7 +290,7 @@
 				<cgsaccount>cdkjcs</cgsaccount>
 				<cgspassword>4028823f5cec9613015d07046034729c</cgspassword>
 				<!-- 车管所老接口地址 -->
-				<stcUrlOld>http://cheguansuo.chudaokeji.com/book/services/wsBookService</stcUrlOld>
+				<stcUrlOld>http://192.168.2.191:8092/book/services/wsBookUniformService</stcUrlOld>
 				
 				
 				<!-- 域名地址 -->
