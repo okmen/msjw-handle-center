@@ -512,8 +512,10 @@ public class ThirdPartyInterface {
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, WT1002, sb.toString(), userId, userPwd, key);
 		String code = EZ1001RepJson.getString("CODE");
 		String msg = EZ1001RepJson.getString("MSG");
+		String body= EZ1001RepJson.getString("BODY");
 		map.put("code", code);
 		map.put("msg", msg);
+		map.put("body", body);
 		return map;
 
 	}
