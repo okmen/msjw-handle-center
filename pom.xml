@@ -294,7 +294,7 @@
 				
 				
 				<!-- 域名地址 -->
-				<templateSendUrl>http://szjj.u-road.com/h5/#/submitSuccess?</templateSendUrl>
+				<templateSendUrl>http://gzh.stc.gov.cn/h5/#/submitSuccess?</templateSendUrl>
 			</properties>
 		</profile>
 	</profiles>
