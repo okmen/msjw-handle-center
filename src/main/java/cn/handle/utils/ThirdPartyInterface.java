@@ -475,7 +475,7 @@ public class ThirdPartyInterface {
 			sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?><REQUEST>")
 			.append("<CLSYQ>").append(applyBusinessVo.getProprietorship()).append("</CLSYQ>")     //车辆所有权(0个人)
 			.append("<LRZHLX>").append(applyBusinessVo.getSourceOfCertification()).append("</LRZHLX>")  //申报方式（A移动APP、C微信、Z支付宝,E邮政）
-			.append("<LRZH>").append(applyBusinessVo.getIdentityCard()).append("</LRZH>")  //身份证号码
+			.append("<LRZH>").append(applyBusinessVo.getCarOwnerIdentityCard()).append("</LRZH>")  //身份证号码
 			.append("<HPHM>").append(applyBusinessVo.getLicensePlateNo()).append("</HPHM>")  //车牌号码
 			.append("<HPZL>").append(applyBusinessVo.getLicensePlateType()).append("</HPZL>")  //车牌种类
 			.append("<CLSBDH>").append(applyBusinessVo.getVehicleIdentifyNoLast4()).append("</CLSBDH>")  //车驾后4
@@ -489,6 +489,7 @@ public class ThirdPartyInterface {
 			.append("</REQUEST>");
 		
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, WT1001, sb.toString(), userId, userPwd, key);
+		
 		String code = EZ1001RepJson.getString("CODE");
 		String msg = EZ1001RepJson.getString("MSG");
 		map.put("code", code);
