@@ -1,7 +1,9 @@
 package cn.handle.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -18,6 +20,7 @@ import cn.handle.bean.vo.DriverChangeContactVo;
 import cn.handle.bean.vo.DriverLicenseAnnualVerificationVo;
 import cn.handle.bean.vo.DriverLicenseIntoVo;
 import cn.handle.bean.vo.DriverLicenseVoluntaryDemotionVo;
+import cn.handle.bean.vo.InspectionDeclarationVo;
 import cn.handle.bean.vo.IocomotiveCarChangeContactVo;
 import cn.handle.bean.vo.IocomotiveCarReplaceVo;
 import cn.handle.bean.vo.RenewalDriverLicenseVo;
@@ -30,6 +33,7 @@ import cn.handle.utils.ThirdPartyInterface;
 import cn.sdk.webservice.WebServiceClient;
 import cn.sdk.bean.BaseBean;
 import cn.sdk.util.MsgCode;
+import cn.sdk.util.StringUtil;
 
 
 @SuppressWarnings(value="all")
@@ -310,7 +314,18 @@ public class IHandleServiceImpl implements IHandleService{
 			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
 			 String key = iAccountCached.getKey(); //秘钥
 			 map = ThirdPartyInterface.inspectionDeclarationQuery(identityCard,sourceOfCertification,url, method, userId, userPwd, key);
+			 String row=map.get("body");
+			 List<InspectionDeclarationVo> infos = new ArrayList<InspectionDeclarationVo>();
 			 
+		 	 if(!StringUtil.isBlank(row)){		
+					if(row.contains("[")){
+						infos=(List<InspectionDeclarationVo>) JSON.parseArray(row, InspectionDeclarationVo.class);
+					}else{
+						InspectionDeclarationVo model=JSON.parseObject(row,InspectionDeclarationVo.class);
+						infos.add(model);
+					}			 
+			 }
+		 	 map.put("body", JSON.toJSONString(infos));
 			 logger.debug("【办理类服务】机动车委托异地定期检验申报查询结果:"+map);
 		} catch (Exception e) {
 			logger.error("【办理类服务】机动车委托异地定期检验申报查询异常！identityCard="+ identityCard+"  sourceOfCertification="+sourceOfCertification,e);

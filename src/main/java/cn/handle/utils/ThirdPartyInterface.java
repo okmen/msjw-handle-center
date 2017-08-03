@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.JsonObject;
@@ -19,6 +20,7 @@ import cn.handle.bean.vo.DriverChangeContactVo;
 import cn.handle.bean.vo.DriverLicenseAnnualVerificationVo;
 import cn.handle.bean.vo.DriverLicenseIntoVo;
 import cn.handle.bean.vo.DriverLicenseVoluntaryDemotionVo;
+import cn.handle.bean.vo.InspectionDeclarationVo;
 import cn.handle.bean.vo.IocomotiveCarChangeContactVo;
 import cn.handle.bean.vo.IocomotiveCarReplaceVo;
 import cn.handle.bean.vo.RenewalDriverLicenseVo;
@@ -513,10 +515,15 @@ public class ThirdPartyInterface {
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, WT1002, sb.toString(), userId, userPwd, key);
 		String code = EZ1001RepJson.getString("CODE");
 		String msg = EZ1001RepJson.getString("MSG");
-		String body= EZ1001RepJson.getString("BODY");
+		JSONObject body= (JSONObject) EZ1001RepJson.get("BODY");
+		String row=null;
+		if(code.equals("0000")&&body!=null){		
+			row=body.getString("ROW");
+
+		}
 		map.put("code", code);
 		map.put("msg", msg);
-		map.put("body", body);
+		map.put("body", row);
 		return map;
 
 	}
