@@ -533,7 +533,7 @@ public class IHandleServiceImpl implements IHandleService{
 	@Override
 	public BaseBean createVehicleInspection(CreateVehicleInspectionVo createVehicleInspectionVo) throws Exception {
 		String method = "JK14";
-		BaseBean refBase = new BaseBean();
+		BaseBean refBean = new BaseBean();
 		try {
 			String url = iAccountCached.getStcUrl();
 			String account = iAccountCached.getCgsaccount();
@@ -559,10 +559,16 @@ public class IHandleServiceImpl implements IHandleService{
 			.append("<carTypeId>").append(createVehicleInspectionVo.getCarTypeId()).append("</carTypeId>")
 			.append("</root>");
 			JSONObject jsonObject = WebServiceClient.vehicleAdministrationWebServiceNew(url, method, sb.toString(), account, password);
+			String code = jsonObject.getString("code");
+			String msg = jsonObject.getString("msg");
+			String result = jsonObject.getString("result");
+			refBean.setCode(code);
+			refBean.setMsg(msg);
+			refBean.setData(result);
 		} catch (Exception e) {
 			logger.error("createVehicleInspection 失败 ， createVehicleInspectionVo = " + createVehicleInspectionVo);
 			throw e;
 		}
-		return refBase;
+		return refBean;
 	}
 }
