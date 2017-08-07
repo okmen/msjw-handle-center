@@ -16,6 +16,7 @@ import cn.handle.bean.vo.ApplyCarTemporaryLicenceVo;
 import cn.handle.bean.vo.ApplyGatePassVo;
 import cn.handle.bean.vo.ApplyInspectionMarkVo;
 import cn.handle.bean.vo.ApplyRemoteEntrustedBusinessVo;
+import cn.handle.bean.vo.CreateVehicleInspectionVo;
 import cn.handle.bean.vo.DriverChangeContactVo;
 import cn.handle.bean.vo.DriverLicenseAnnualVerificationVo;
 import cn.handle.bean.vo.DriverLicenseIntoVo;
@@ -396,78 +397,6 @@ public class IHandleServiceImpl implements IHandleService{
 	
 
 	/**
-	 * 六年免检预约
-	 */
-	public JSONObject createVehicleInspection(LinkedHashMap<String, Object> map) throws Exception {
-		String method = "createVehicleInspection";
-		JSONObject jsonObject = new JSONObject();
-		try {
-			String url = iAccountCached.getStcUrlOld();
-			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
-		} catch (Exception e) {
-			logger.error("createVehicleInspection 失败 ， map = " + map);
-			throw e;
-		}
-		return jsonObject;
-	}
-
-	/**
-	 * 获取车辆类型列表
-	 */
-	public JSONObject getCarTypes(LinkedHashMap<String, Object> map) throws Exception {
-		String method = "getCarTypes";
-		JSONObject jsonObject = new JSONObject();
-		try {
-			String url = iAccountCached.getStcUrlOld();
-			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
-		} catch (Exception e) {
-			logger.error("getCarTypes 失败 ， map = " + map);
-			throw e;
-		}
-		return jsonObject;
-	}
-
-	/**
-	 * 取消机动车六年免检预约
-	 * 
-	 * @param map
-	 * @return
-	 * @throws Exception
-	 */
-	public JSONObject cancelVehicleInspection(LinkedHashMap<String, Object> map) throws Exception {
-		String method = "cancelVehicleInspection";
-		JSONObject jsonObject = new JSONObject();
-		try {
-			String url = iAccountCached.getStcUrlOld();
-			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
-		} catch (Exception e) {
-			logger.error("cancelVehicleInspection 失败， map = " + map);
-			throw e;
-		}
-		return jsonObject;
-	}
-
-	/**
-	 * 查询动车六年免检预约
-	 * 
-	 * @param map
-	 * @return
-	 * @throws Exception
-	 */
-	public JSONObject getVehicleInspection(LinkedHashMap<String, Object> map) throws Exception {
-		String method = "getVehicleInspection";
-		JSONObject jsonObject = new JSONObject();
-		try {
-			String url = iAccountCached.getStcUrlOld();
-			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
-		} catch (Exception e) {
-			logger.error("getVehicleInspection 失败， map = " + map);
-			throw e;
-		}
-		return jsonObject;
-	}
-
-	/**
 	 * 补领机动车号牌
 	 * @param vo 补领机动车号牌 申请信息
 	 * @return
@@ -526,5 +455,114 @@ public class IHandleServiceImpl implements IHandleService{
 		}
 		logger.info("2返回的数据为+" + map);
 		return map;
+	}
+	/**
+	 * 获取车辆类型列表
+	 */
+	public JSONObject getCarTypes() throws Exception {
+		String method = "JK07";
+		JSONObject jsonObject = new JSONObject();
+		try {
+			String url = iAccountCached.getStcUrl();
+			String account = iAccountCached.getCgsaccount();
+			String password = iAccountCached.getCgspassword();
+			String data = "<root></root>";
+			jsonObject = WebServiceClient.vehicleAdministrationWebServiceNew(url, method, data, account, password);
+		} catch (Exception e) {
+			logger.error("getCarTypes 失败 ");
+			throw e;
+		}
+		return jsonObject;
+	}
+
+	/**
+	 * 取消机动车六年免检预约
+	 * 
+	 * @param map
+	 * @return
+	 * @throws Exception
+	 */
+	public JSONObject cancelVehicleInspection(String bookNumber, String numberPlate) throws Exception {
+		String method = "JK15";
+		JSONObject jsonObject = new JSONObject();
+		try {
+			String url = iAccountCached.getStcUrl();
+			String account = iAccountCached.getCgsaccount();
+			String password = iAccountCached.getCgspassword();
+			StringBuffer sb = new StringBuffer();
+			sb.append("<root>")
+			.append("<bookNumber>").append(bookNumber).append("</bookNumber>")
+			.append("<platNumber>").append(numberPlate).append("</platNumber>")
+			.append("</root>");
+			jsonObject = WebServiceClient.vehicleAdministrationWebServiceNew(url, method, sb.toString(), account, password);
+		} catch (Exception e) {
+			logger.error("cancelVehicleInspection 失败");
+			throw e;
+		}
+		return jsonObject;
+	}
+
+	/**
+	 * 取消机动车六年免检预约
+	 * 
+	 * @param map
+	 * @return
+	 * @throws Exception
+	 */
+	public JSONObject getVehicleInspection(String bookNumber, String numberPlate, String driveLicenseNumber) throws Exception {
+		String method = "JK25";
+		JSONObject jsonObject = new JSONObject();
+		try {
+			String url = iAccountCached.getStcUrl();
+			String account = iAccountCached.getCgsaccount();
+			String password = iAccountCached.getCgspassword();
+			StringBuffer sb = new StringBuffer();
+			sb.append("<root>")
+			.append("<bookNumber>").append(bookNumber).append("</bookNumber>")
+			.append("<platNumber>").append(numberPlate).append("</platNumber>")
+			.append("<driveLicenseNumber>").append(driveLicenseNumber).append("</driveLicenseNumber>")
+			.append("</root>");
+			jsonObject = WebServiceClient.vehicleAdministrationWebServiceNew(url, method, sb.toString(), account, password);
+		} catch (Exception e) {
+			logger.error("getVehicleInspection 失败");
+			throw e;
+		}
+		return jsonObject;
+	}
+
+	@Override
+	public BaseBean createVehicleInspection(CreateVehicleInspectionVo createVehicleInspectionVo) throws Exception {
+		String method = "JK14";
+		BaseBean refBase = new BaseBean();
+		try {
+			String url = iAccountCached.getStcUrl();
+			String account = iAccountCached.getCgsaccount();
+			String password = iAccountCached.getCgspassword();
+			StringBuffer sb = new StringBuffer();
+			sb.append("<root>")
+			.append("<platNumber>").append(createVehicleInspectionVo.getPlatNumber()).append("</platNumber>")
+			.append("<name>").append(createVehicleInspectionVo.getName()).append("</name>")
+			.append("<personType>").append(createVehicleInspectionVo.getPersonType()).append("</personType>")
+			.append("<driveLicenseNumber>").append(createVehicleInspectionVo.getDriveLicenseNumber()).append("</driveLicenseNumber>")
+			.append("<mobile>").append(createVehicleInspectionVo.getMobile()).append("</mobile>")
+			.append("<telno>").append(createVehicleInspectionVo.getTelno()).append("</telno>")
+			.append("<recipientsName>").append(createVehicleInspectionVo.getRecipientsName()).append("</recipientsName>")
+			.append("<recipientsMobile>").append(createVehicleInspectionVo.getRecipientsMobile()).append("</recipientsMobile>")
+			.append("<postCode>").append(createVehicleInspectionVo.getPostCode()).append("</postCode>")
+			.append("<postAddr>").append(createVehicleInspectionVo.getPostAddr()).append("</postAddr>")
+			.append("<effectiveDate>").append(createVehicleInspectionVo.getEffectiveDate()).append("</effectiveDate>")
+			.append("<terminationDate>").append(createVehicleInspectionVo.getTerminationDate()).append("</terminationDate>")
+			.append("<inform>").append(createVehicleInspectionVo.getInform()).append("</inform>")
+			.append("<bookerName>").append(createVehicleInspectionVo.getBookerName()).append("</bookerName>")
+			.append("<bookerIdNumber>").append(createVehicleInspectionVo.getBookerIdNumber()).append("</bookerIdNumber>")
+			.append("<bookerType>").append(createVehicleInspectionVo.getBookerType()).append("</bookerType>")
+			.append("<carTypeId>").append(createVehicleInspectionVo.getCarTypeId()).append("</carTypeId>")
+			.append("</root>");
+			JSONObject jsonObject = WebServiceClient.vehicleAdministrationWebServiceNew(url, method, sb.toString(), account, password);
+		} catch (Exception e) {
+			logger.error("createVehicleInspection 失败 ， createVehicleInspectionVo = " + createVehicleInspectionVo);
+			throw e;
+		}
+		return refBase;
 	}
 }

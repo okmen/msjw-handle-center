@@ -17,6 +17,7 @@ import cn.handle.bean.vo.ApplyCarTemporaryLicenceVo;
 import cn.handle.bean.vo.ApplyGatePassVo;
 import cn.handle.bean.vo.ApplyInspectionMarkVo;
 import cn.handle.bean.vo.ApplyRemoteEntrustedBusinessVo;
+import cn.handle.bean.vo.CreateVehicleInspectionVo;
 import cn.handle.bean.vo.DriverChangeContactVo;
 import cn.handle.bean.vo.DriverLicenseAnnualVerificationVo;
 import cn.handle.bean.vo.DriverLicenseIntoVo;
@@ -25,6 +26,7 @@ import cn.handle.bean.vo.RenewalDriverLicenseVo;
 import cn.handle.bean.vo.RepairOrReplaceDriverLicenseVo;
 import cn.handle.bean.vo.VehicleDrivingLicenseVo;
 import cn.handle.service.IHandleService;
+import cn.sdk.bean.BaseBean;
 import cn.sdk.webservice.WebServiceClient;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -34,6 +36,33 @@ public class TestHandleService {
     @Qualifier("handleService")
     private IHandleService handleService;
 	/**
+	 * 六年免检预约
+	 * @throws Exception
+	 */
+	@Test
+	public void testcreateVehicleInspection() throws Exception{
+		CreateVehicleInspectionVo createVehicleInspectionVo = new CreateVehicleInspectionVo();
+		createVehicleInspectionVo.setPlatNumber("粤B6A42E");
+		createVehicleInspectionVo.setName("测试");
+		createVehicleInspectionVo.setPersonType("1");
+		createVehicleInspectionVo.setDriveLicenseNumber("1111");
+		createVehicleInspectionVo.setMobile("15920071829");
+		createVehicleInspectionVo.setTelno("11");
+		createVehicleInspectionVo.setRecipientsName("测试");
+		createVehicleInspectionVo.setRecipientsMobile("11");
+		createVehicleInspectionVo.setPostCode("11");
+		createVehicleInspectionVo.setPostAddr("测试");
+		createVehicleInspectionVo.setEffectiveDate("2017-01-01");
+		createVehicleInspectionVo.setTerminationDate("2017-08-01");
+		createVehicleInspectionVo.setInform("1");
+		createVehicleInspectionVo.setBookerName("测试");
+		createVehicleInspectionVo.setBookerIdNumber("");
+		createVehicleInspectionVo.setBookerType("0");
+		createVehicleInspectionVo.setCarTypeId("e4e48584399473d20139947fff4e2b2e");
+		BaseBean createVehicleInspection = handleService.createVehicleInspection(createVehicleInspectionVo);
+		System.out.println(createVehicleInspection);
+	} 
+	/**
 	 * 首违免罚查询
 	 */
 	 @Test
@@ -42,99 +71,10 @@ public class TestHandleService {
 		 String plateType = "";
 		 String id = "4403197900206196";
 		 String  queryType = "2";
-		 Map<String, Object> map = handleService.getResultOfFirstIllegalImpunity("", "", "11", "2");
+		 Map<String, Object> map = handleService.getResultOfFirstIllegalImpunity(numberPlate, plateType, id, queryType);
 		 System.out.println(map);
 	 }
-	/**
-	 * 取消六年免检预约
-	 * 取消机动车
-	 * @param bookerNumber
-	 * @param platNumber
-	 * @throws Exception DateUtil.formatDateTime(new Date())
-	 */
-	@Test
-	public void testcancelVehicleInspection() throws Exception{
-		JSONObject jsonObject = new JSONObject();
-		try {
-			String method = "getBusinessTypes";
-			LinkedHashMap<String, Object> map = new LinkedHashMap<>();
-			map.put("type", "1");
-			map.put("part", "");
-			map.put("arg0", "");
-			map.put("arg1", "");
-			String url = "http://cheguansuo.chudaokeji.com/book/services/wsBookService";
-			jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, map);
-			System.out.println(jsonObject);
-		} catch (Exception e) {
-			throw e;
-		}
-		/*LinkedHashMap<String, Object> map = new LinkedHashMap<>();
-		map.put("bookerNumber", "P170706047");
-		map.put("platNumber", "粤B6F7M1");
-		JSONObject jsonObject = handleService.cancelVehicleInspection(map);
-		System.out.println(jsonObject);*/
-	}
-	
-	
-	/**
-	 * 获取机动车预约信息
-	 * @throws Exception 
-	 */
-	@Test
-	public void testgetVehicleInspection() throws Exception{
-		LinkedHashMap<String, Object> map = new LinkedHashMap<>();
-		map.put("bookerNumber", "P170706047");
-		map.put("platNumber", "");
-		map.put("driveLicenseNumber", "");
-		JSONObject jsonObject = handleService.getVehicleInspection(map);
-		System.out.println(jsonObject);
-	}
-	
-	
-	/**
-	 * 获取车辆类型列表
-	 * @throws Exception
-	 */
-	@Test
-	public void testgetCarTypes() throws Exception {
-		LinkedHashMap<String, Object> map = new LinkedHashMap<>();
-		map.put("arg0", "");
-		map.put("arg1", "");
-		JSONObject carTypes = handleService.getCarTypes(map);
-		System.out.println(carTypes);
-	}
-	/**
-	 * 六年免检预约
-	 * @throws Exception
-	 */
-	@Test
-	public void testcreateVehicleInspection() throws Exception{
-		LinkedHashMap<String, Object> map = new LinkedHashMap<>();
-		map.put("platNumber","粤B6F7M1");
-		map.put("name","王玉璞");
-		map.put("personType","1");
-		map.put("driveLicenseNumber","822198502074110");
-		map.put("mobile","15920071829");
-		map.put("telno","");
-		map.put("recipientsName","王玉璞");
-		map.put("recipientsMobile","15920071829");
-		map.put("postCode","123456");
-		map.put("postAddr","11");
-		map.put("effectiveDate","2017-01-01");
-		map.put("terminationDate","2017-12-12");
-		map.put("inform","1");
-		map.put("bookerName","王玉璞");
-		map.put("bookerIdNumber","15920071829");
-		map.put("bookerType","0");
-		map.put("carTypeId","e4e48584399473d20139947fff4e2b2e");
-		map.put("arg0","");
-		map.put("arg1","");
-		map.put("arg2","");
-		map.put("arg3","");
-		map.put("arg4","");
-		JSONObject jsonObject = handleService.createVehicleInspection(map);
-		System.out.println(jsonObject);
-	} 
+
 	/**
 	 * 驾驶人联系方式变更
 	 * @throws Exception 
