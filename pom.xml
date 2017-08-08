@@ -286,7 +286,7 @@
 				<jiaojing.key>94D863D9BE7FB032E6A19430CC892610</jiaojing.key>
 				
 				<!-- 车管所 新接口地址-->
-				<stcUrl>http://app.stc.gov.cn:8092/book/services/wsBookUniformService</stcUrl>
+				<stcUrl>http://192.168.2.191:8092/book/services/wsBookUniformService</stcUrl>
 				<cgsaccount>cdkjcs</cgsaccount>
 				<cgspassword>4028823f5cec9613015d07046034729c</cgspassword>
 				<!-- 车管所老接口地址 -->
