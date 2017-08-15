@@ -230,10 +230,20 @@ public class ThirdPartyInterface {
 		Map<String , String> map = new HashMap<>();
 		String EZ1001 = "XWSQ";
 		//拼装xml数据
+		String hplx = "";
+		if("01".equals(applyGatePassVo.getPlateType())){
+			hplx = "黄";
+		}
+		if("02".equals(applyGatePassVo.getPlateType())){
+			hplx = "蓝";
+		}
+		if("06".equals(applyGatePassVo.getPlateType())){
+			hplx = "黑";
+		}
 		StringBuffer sb = new StringBuffer();
 			sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?><REQUEST>")
 			.append("<HPHM>").append(applyGatePassVo.getAbbreviation()+applyGatePassVo.getNumberPlate()).append("</HPHM>")     //号码号牌
-			.append("<HPZL>").append(applyGatePassVo.getPlateType()).append("</HPZL>")  //号牌种类
+			.append("<HPZL>").append(hplx).append("</HPZL>")  //号牌种类
 			.append("<CLLX>").append(applyGatePassVo.getCartype()).append("</CLLX>")  //车辆类型
 			.append("<CJH4>").append(applyGatePassVo.getVin()).append("</CJH4>")  //车架号后四位
 			.append("<CLSYR>").append(applyGatePassVo.getUserName()).append("</CLSYR>")  //车辆所有人
