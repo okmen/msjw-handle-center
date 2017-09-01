@@ -58,13 +58,12 @@ public class IHandleServiceImpl implements IHandleService{
 			DriverLicenseAnnualVerificationVo driverLicenseAnnualVerificationVo)  throws Exception{
 		Map<String, String> map = new HashMap<>();
 		try {
-			
-			
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			 String sourceOfCertification = driverLicenseAnnualVerificationVo.getUserSource();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.driverLicenseAnnualVerification(driverLicenseAnnualVerificationVo, url, method, userId, userPwd, key);
 			 
 		} catch (Exception e) {
@@ -80,12 +79,12 @@ public class IHandleServiceImpl implements IHandleService{
 	public Map<String, String> renewalDriverLicense(RenewalDriverLicenseVo renewalDriverLicenseVo)  throws Exception{
 		Map<String, String> map = new HashMap<>();
 		try {
-			
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			 String sourceOfCertification = renewalDriverLicenseVo.getSourceOfCertification();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.renewalDriverLicense(renewalDriverLicenseVo, url, method, userId, userPwd, key);
 			 
 		} catch (Exception e) {
@@ -101,12 +100,12 @@ public class IHandleServiceImpl implements IHandleService{
 	public Map<String, String> driverLicenseInto(DriverLicenseIntoVo driverLicenseIntoVo)  throws Exception{
 		Map<String, String> map = new HashMap<>();
 		try {
-			
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			 String sourceOfCertification = driverLicenseIntoVo.getSourceOfCertification();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.driverLicenseInto(driverLicenseIntoVo, url, method, userId, userPwd, key);
 			 
 		} catch (Exception e) {
@@ -123,12 +122,12 @@ public class IHandleServiceImpl implements IHandleService{
 			DriverLicenseVoluntaryDemotionVo driverLicenseVoluntaryDemotionVo)  throws Exception{
 		Map<String, String> map = new HashMap<>();
 		try {
-			
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			 String sourceOfCertification = driverLicenseVoluntaryDemotionVo.getSourceOfCertification();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.driverLicenseVoluntaryDemotion(driverLicenseVoluntaryDemotionVo, url, method, userId, userPwd, key);
 			 
 		} catch (Exception e) {
@@ -146,12 +145,12 @@ public class IHandleServiceImpl implements IHandleService{
 	public Map<String, String> driverChangeContact(DriverChangeContactVo driverChangeContactVo)  throws Exception{
 		Map<String, String> map = new HashMap<>();
 		try {
-			
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			 String sourceOfCertification = driverChangeContactVo.getUserSource();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.driverChangeContact(driverChangeContactVo, url, method, userId, userPwd, key);
 			 
 		} catch (Exception e) {
@@ -167,12 +166,12 @@ public class IHandleServiceImpl implements IHandleService{
 	public Map<String, String> repairDriverLicense(RepairOrReplaceDriverLicenseVo repairOrReplaceDriverLicenseVo)  throws Exception{
 		Map<String, String> map = new HashMap<>();
 		try {
-			
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			 String sourceOfCertification = repairOrReplaceDriverLicenseVo.getUserSource();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.repairDriverLicense(repairOrReplaceDriverLicenseVo, url, method, userId, userPwd, key);
 			 
 		} catch (Exception e) {
@@ -188,12 +187,12 @@ public class IHandleServiceImpl implements IHandleService{
 	public Map<String, String> replaceDriverLicense(RepairOrReplaceDriverLicenseVo repairOrReplaceDriverLicenseVo)  throws Exception{
 		Map<String, String> map = new HashMap<>();
 		try {
-			
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			 String sourceOfCertification = repairOrReplaceDriverLicenseVo.getUserSource();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.replaceDriverLicense(repairOrReplaceDriverLicenseVo, url, method, userId, userPwd, key);
 			 
 		} catch (Exception e) {
@@ -210,12 +209,12 @@ public class IHandleServiceImpl implements IHandleService{
 		logger.debug("【办理类服务】申请通行证(外地车)applyGatePass...");
 		Map<String, String> map = new HashMap<>();
 		try {
-			
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			String sourceOfCertification = "";
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.applyGatePass(applyGatePassVo, url, method, userId, userPwd, key);
 			 
 			 logger.debug("【办理类服务】申请通行证(外地车)采集结果:"+map);
@@ -233,12 +232,12 @@ public class IHandleServiceImpl implements IHandleService{
 		logger.debug("【办理类服务】申请机动车临牌applyCarTemporaryLicence...");
 		Map<String, String> map = new HashMap<>();
 		try {
-			
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			String sourceOfCertification = applyCarTemporaryLicenceVo.getSourceOfCertification();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.applyCarTemporaryLicence(applyCarTemporaryLicenceVo, url, method, userId, userPwd, key);
 			 
 			 logger.debug("【办理类服务】申请机动车临牌结果:"+map);
@@ -258,12 +257,12 @@ public class IHandleServiceImpl implements IHandleService{
 		logger.debug("【办理类服务】补换检验合格标志applyInspectionMarkVo...");
 		Map<String, String> map = new HashMap<>();
 		try {
-			
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			String sourceOfCertification = applyInspectionMarkVo.getSourceOfCertification();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.replaceInspectionMark(applyInspectionMarkVo, url, method, userId, userPwd, key);
 			 
 			 logger.debug("【办理类服务】补换检验合格标志结果:"+map);
@@ -283,12 +282,12 @@ public class IHandleServiceImpl implements IHandleService{
 		logger.debug("【办理类服务】机动车委托异地定期检验申报 ApplyRemoteEntrustedBusinessVo...");
 		Map<String, String> map = new HashMap<>();
 		try {
-			
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			String sourceOfCertification = applyRemoteEntrustedBusinessVo.getSourceOfCertification();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.inspectionDeclaration(applyRemoteEntrustedBusinessVo, url, method, userId, userPwd, key);
 			 
 			 logger.debug("【办理类服务】机动车委托异地定期检验申报结果:"+map);
@@ -308,12 +307,11 @@ public class IHandleServiceImpl implements IHandleService{
 		logger.debug("【办理类服务】机动车委托异地定期检验申报查询 ...");
 		Map<String, String> map = new HashMap<>();
 		try {
-			
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.inspectionDeclarationQuery(identityCard,sourceOfCertification,url, method, userId, userPwd, key);
 			 String row=map.get("body");
 			 List<InspectionDeclarationVo> infos = new ArrayList<InspectionDeclarationVo>();
@@ -340,11 +338,12 @@ public class IHandleServiceImpl implements IHandleService{
 		logger.debug("【办理类服务】机动车联系方式变更iocomotiveCarChangeContact...");
 		Map<String, String> map = new HashMap<>();
 		try {
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			 String sourceOfCertification = iocomotiveCarChangeContactVo.getSourceOfCertification();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.iocomotiveCarChangeContact(iocomotiveCarChangeContactVo, url, method, userId, userPwd, key);
 			 logger.debug("【办理类服务】机动车联系方式变更结果:"+map);
 		} catch (Exception e) {
@@ -360,11 +359,12 @@ public class IHandleServiceImpl implements IHandleService{
 		logger.debug("【办理类服务】换领机动车行驶证iocomotiveCarReplace...");
 		Map<String, String> map = new HashMap<>();
 		try {
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			 String sourceOfCertification = iocomotiveCarReplaceVo.getSourceOfCertification();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.iocomotiveCarReplace(iocomotiveCarReplaceVo, url, method, userId, userPwd, key);
 			 logger.debug("【办理类服务】换领机动车行驶证结果:"+map);
 		} catch (Exception e) {
@@ -381,11 +381,12 @@ public class IHandleServiceImpl implements IHandleService{
 		logger.debug("【办理类服务】补领机动车行驶证complementTheMotorVehicleDrivingLicense...");
 		Map<String, Object> map = new HashMap<>();
 		try {
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			String sourceOfCertification = vehicleDrivingLicenseVo.getSourceOfCertification();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.complementTheMotorVehicleDrivingLicense(vehicleDrivingLicenseVo, url, method, userId, userPwd, key);
 			 logger.debug("complementTheMotorVehicleDrivingLicense结果:"+map);
 		} catch (Exception e) {
@@ -406,11 +407,12 @@ public class IHandleServiceImpl implements IHandleService{
 		logger.debug("【办理类服务】补领机动车号牌replaceMotorVehicleLicensePlate...");
 		BaseBean baseBean = new BaseBean();
 		try {
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			String sourceOfCertification = vo.getSourceOfCertification();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 
 			 JSONObject EZ1002RepJson = ThirdPartyInterface.replaceMotorVehicleLicensePlate(vo, url, method, userId, userPwd, key);
 			 logger.info("【办理类服务】补领机动车号牌 xml转换成json：" + JSON.toJSONString(EZ1002RepJson));
@@ -440,11 +442,12 @@ public class IHandleServiceImpl implements IHandleService{
 			String queryType) throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		try {
-			 String url = iAccountCached.getUrl(); //webservice请求url
-			 String method = iAccountCached.getMethod(); //webservice请求方法名称
-			 String userId = iAccountCached.getUserid(); //webservice登录账号
-			 String userPwd = iAccountCached.getUserpwd(); //webservice登录密码
-			 String key = iAccountCached.getKey(); //秘钥
+			String sourceOfCertification = "";
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 logger.info("numberPlate = " + numberPlate+"plateType="+plateType+"illegalNumber="+illegalNumber+"queryType="+queryType);
 			 map = ThirdPartyInterface.getResultOfFirstIllegalImpunity(numberPlate,plateType, illegalNumber,
 						queryType, url, method, userId, userPwd, key);
