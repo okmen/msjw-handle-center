@@ -36,6 +36,14 @@ public class TestHandleService {
     @Qualifier("handleService")
     private IHandleService handleService;
 	/**
+	 * 
+	 */
+	@Test
+	public void test1() throws Exception{
+		JSONObject jsonObject = handleService.getVehicleInspection("P170907161", "", "");
+		System.out.println(jsonObject);
+	}
+	/**
 	 * 六年免检预约
 	 * @throws Exception
 	 */
@@ -47,7 +55,7 @@ public class TestHandleService {
 		createVehicleInspectionVo.setPersonType("1");
 		createVehicleInspectionVo.setDriveLicenseNumber("1111");
 		createVehicleInspectionVo.setMobile("15920071829");
-		createVehicleInspectionVo.setTelno("11");
+		createVehicleInspectionVo.setTelno("");
 		createVehicleInspectionVo.setRecipientsName("测试");
 		createVehicleInspectionVo.setRecipientsMobile("11");
 		createVehicleInspectionVo.setPostCode("11");
