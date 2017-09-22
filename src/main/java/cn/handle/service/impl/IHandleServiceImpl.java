@@ -17,6 +17,7 @@ import cn.handle.bean.vo.ApplyGatePassVo;
 import cn.handle.bean.vo.ApplyInspectionMarkVo;
 import cn.handle.bean.vo.ApplyRemoteEntrustedBusinessVo;
 import cn.handle.bean.vo.CreateVehicleInspectionVo;
+import cn.handle.bean.vo.DelegateVehiclesVo;
 import cn.handle.bean.vo.DriverChangeContactVo;
 import cn.handle.bean.vo.DriverLicenseAnnualVerificationVo;
 import cn.handle.bean.vo.DriverLicenseIntoVo;
@@ -573,5 +574,25 @@ public class IHandleServiceImpl implements IHandleService{
 			throw e;
 		}
 		return refBean;
+	}
+
+
+	@Override
+	public BaseBean electronicDelegateVehicles(DelegateVehiclesVo delegateVehiclesVo) throws Exception {
+		BaseBean baseBean = new BaseBean();
+		try {
+			 String sourceOfCertification = delegateVehiclesVo.getUserSource();
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
+			 baseBean = ThirdPartyInterface.electronicDelegateVehicles(delegateVehiclesVo, url, method, userId, userPwd, key);
+		} catch (Exception e) {
+			logger.error("【办理类服务】机动车联系方式变更异常！delegateVehiclesVo=" + delegateVehiclesVo,e);
+			throw e;
+		}
+		
+		return baseBean;
 	}
 }

@@ -18,6 +18,7 @@ import cn.handle.bean.vo.ApplyGatePassVo;
 import cn.handle.bean.vo.ApplyInspectionMarkVo;
 import cn.handle.bean.vo.ApplyRemoteEntrustedBusinessVo;
 import cn.handle.bean.vo.CreateVehicleInspectionVo;
+import cn.handle.bean.vo.DelegateVehiclesVo;
 import cn.handle.bean.vo.DriverChangeContactVo;
 import cn.handle.bean.vo.DriverLicenseAnnualVerificationVo;
 import cn.handle.bean.vo.DriverLicenseIntoVo;
@@ -35,6 +36,23 @@ public class TestHandleService {
 	@Autowired
     @Qualifier("handleService")
     private IHandleService handleService;
+	@Test
+	public void testelectronicDelegateVehicles() throws Exception{
+		DelegateVehiclesVo dv = new DelegateVehiclesVo();
+		dv.setBusinessType("jdc");
+		dv.setBusinessReason("B");
+		dv.setBailerName("张宇帆");
+		dv.setBailerIdentityCard("445222199209020034");
+		dv.setBailerLicenseNumber("粤B6A42E");
+		dv.setBailerNumberPlate("02");
+		dv.setBailerValidTime("15");
+		dv.setBaileeName("开发测试");
+		dv.setBaileeIdentitycard("123456789123456789");
+		dv.setBaileeMobilephone("13627267056");
+		dv.setUserSource("Z");
+		BaseBean baseBean = handleService.electronicDelegateVehicles(dv);
+		System.out.println(baseBean);
+	}
 	/**
 	 * 
 	 */

@@ -16,6 +16,7 @@ import cn.handle.bean.vo.ApplyCarTemporaryLicenceVo;
 import cn.handle.bean.vo.ApplyGatePassVo;
 import cn.handle.bean.vo.ApplyInspectionMarkVo;
 import cn.handle.bean.vo.ApplyRemoteEntrustedBusinessVo;
+import cn.handle.bean.vo.DelegateVehiclesVo;
 import cn.handle.bean.vo.DriverChangeContactVo;
 import cn.handle.bean.vo.DriverLicenseAnnualVerificationVo;
 import cn.handle.bean.vo.DriverLicenseIntoVo;
@@ -699,5 +700,31 @@ public class ThirdPartyInterface {
 		}
 
 		return map;
+	}
+
+	public static BaseBean electronicDelegateVehicles(DelegateVehiclesVo delegateVehiclesVo, String url, String method,
+			String userId, String userPwd, String key) throws Exception{
+		BaseBean baseBean = new BaseBean();
+		String jkId = "dzwt02";
+		StringBuffer sb = new StringBuffer();
+		sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?><REQUEST>")
+		.append("<WT_YWLX>").append(delegateVehiclesVo.getBusinessType()).append("</WT_YWLX>")
+		.append("<WT_YWYY>").append(delegateVehiclesVo.getBusinessReason()).append("</WT_YWYY>")
+		.append("<WT_XM>").append(delegateVehiclesVo.getBailerName()).append("</WT_XM>")
+		.append("<WT_SFZMHM>").append(delegateVehiclesVo.getBailerIdentityCard()).append("</WT_SFZMHM>")
+		.append("<WT_HPHM>").append(delegateVehiclesVo.getBailerLicenseNumber()).append("</WT_HPHM>")
+		.append("<WT_HPZL>").append(delegateVehiclesVo.getBailerNumberPlate()).append("</WT_HPZL>")
+		.append("<WT_YXQ>").append(delegateVehiclesVo.getBailerValidTime()).append("</WT_YXQ>")
+		.append("<ST_XM>").append(delegateVehiclesVo.getBaileeName()).append("</ST_XM>")
+		.append("<ST_SFZMHM>").append(delegateVehiclesVo.getBaileeIdentitycard()).append("</ST_SFZMHM>")
+		.append("<ST_LXDH>").append(delegateVehiclesVo.getBaileeMobilephone()).append("</ST_LXDH>")
+		.append("<LYBZ>").append(delegateVehiclesVo.getUserSource()).append("</LYBZ>")
+		.append("</REQUEST>");
+		JSONObject jsonObject = WebServiceClient.getInstance().requestWebService(url, method, jkId, sb.toString(), userId, userPwd, key);
+		String code = jsonObject.getString("CODE");
+		String msg = jsonObject.getString("MSG");
+		baseBean.setCode(code);
+		baseBean.setMsg(msg);
+		return baseBean;
 	}
 }
