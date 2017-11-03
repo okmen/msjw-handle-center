@@ -407,6 +407,7 @@ public class TestHandleService {
 		vo.setRecipientPhone("15920050177");
 		vo.setSourceOfCertification("C");
 		vo.setUserName("测试");
+		vo.setName("ceshi");
 		vo.setVehicleIdentifyNoLast4("5563");
 		Map<String, String > map = new HashMap<>();
 		map = handleService.inspectionDeclaration(vo);
@@ -422,7 +423,7 @@ public class TestHandleService {
 	public void testInspectionDeclarationQuery() throws Exception{
 		ApplyRemoteEntrustedBusinessVo vo=new ApplyRemoteEntrustedBusinessVo();
 		
-		vo.setIdentityCard("440301199002101119");
+		vo.setIdentityCard("445222199209020034");
 		vo.setSourceOfCertification("C");
 		Map<String, String > map = new HashMap<>();
 		map = handleService.inspectionDeclarationQuery("440301199002101119","C");
@@ -483,6 +484,7 @@ public class TestHandleService {
 		vo.setPHOTO31("");
 		vo.setIp("123213");
 		vo.setSourceOfCertification("C");
+		vo.setPlaceOfDomicile("1");
 		
 		Map<String, String > map = new HashMap<>();
 		map = handleService.applyCarTemporaryLicence(vo);

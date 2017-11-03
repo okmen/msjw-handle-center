@@ -297,6 +297,7 @@ public class ThirdPartyInterface {
 			.append("<WWLRIP>").append(applyCarTemporaryLicenceVo.getIp()).append("</WWLRIP>")  //外网录入ip
 			.append("<LYBZ>").append(applyCarTemporaryLicenceVo.getSourceOfCertification()).append("</LYBZ>")  //申请来源（A移动APP C微信Z支付宝E邮政）
 			.append("<LOGIN_USER>").append(applyCarTemporaryLicenceVo.getIdentityCard()).append("</LOGIN_USER>")  //登录用户身份证号码
+			.append("<FJSZD>").append(applyCarTemporaryLicenceVo.getPlaceOfDomicile()).append("</FJSZD>")
 			.append("</REQUEST>");
 		
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1001, sb.toString(), userId, userPwd, key);
