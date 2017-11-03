@@ -230,7 +230,7 @@ public class IHandleServiceImpl implements IHandleService{
 	@Override
 	public Map<String, String> applyCarTemporaryLicence(ApplyCarTemporaryLicenceVo applyCarTemporaryLicenceVo)
 			throws Exception {
-		logger.debug("【办理类服务】申请机动车临牌applyCarTemporaryLicence...");
+		logger.info("【办理类服务】申请机动车临牌applyCarTemporaryLicence...");
 		Map<String, String> map = new HashMap<>();
 		try {
 			String sourceOfCertification = applyCarTemporaryLicenceVo.getSourceOfCertification();
@@ -241,7 +241,7 @@ public class IHandleServiceImpl implements IHandleService{
 			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.applyCarTemporaryLicence(applyCarTemporaryLicenceVo, url, method, userId, userPwd, key);
 			 
-			 logger.debug("【办理类服务】申请机动车临牌结果:"+map);
+			 logger.info("【办理类服务】申请机动车临牌结果:"+map);
 		} catch (Exception e) {
 			logger.error("【办理类服务】申请机动车临牌异常！ApplyCarTemporaryLicenceVo="+ applyCarTemporaryLicenceVo,e);
 			throw e;
