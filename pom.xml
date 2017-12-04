@@ -153,6 +153,13 @@
 				<log4j.socket.host><![CDATA[192.168.1.120]]></log4j.socket.host>
 				<log4j.socket.port><![CDATA[10005]]></log4j.socket.port>
 				<isMWuserResultsTaskNeed>0</isMWuserResultsTaskNeed>
+				
+				<!-- 警司通参数-高德 -->
+				<jiaojing.userid.gd>GDDH</jiaojing.userid.gd>
+				<jiaojing.userpwd.gd>GDDH2017</jiaojing.userpwd.gd>
+				<jiaojing.url.gd>http://123.56.180.216:19002/xxfbpt/services/xxfbptservice</jiaojing.url.gd>
+				<jiaojing.method.gd>xxptSchuding</jiaojing.method.gd>
+				<jiaojing.key.gd>qKHhr1ojRYuUKMD5NOHIuCJm</jiaojing.key.gd>
 
 				<!-- 警司通参数 -->
 				<jiaojing.userid>WX02</jiaojing.userid>
@@ -223,6 +230,13 @@
 				<log4j.socket.host><![CDATA[test-logserver.choumei.me]]></log4j.socket.host>
 				<log4j.socket.port><![CDATA[10003]]></log4j.socket.port>
 				<isMWuserResultsTaskNeed>0</isMWuserResultsTaskNeed>
+				
+				<!-- 警司通参数-高德 -->
+				<jiaojing.userid.gd>GDDH</jiaojing.userid.gd>
+				<jiaojing.userpwd.gd>GDDH2017</jiaojing.userpwd.gd>
+				<jiaojing.url.gd>http://123.56.180.216:19002/xxfbpt/services/xxfbptservice</jiaojing.url.gd>
+				<jiaojing.method.gd>xxptSchuding</jiaojing.method.gd>
+				<jiaojing.key.gd>qKHhr1ojRYuUKMD5NOHIuCJm</jiaojing.key.gd>
 
 				<!-- 警司通参数 -->
 				<jiaojing.userid>WX02</jiaojing.userid>
@@ -292,6 +306,13 @@
 				<log4j.socket.host><![CDATA[logserver.choumei.cn]]></log4j.socket.host>
 				<log4j.socket.port><![CDATA[10003]]></log4j.socket.port>
 				<isMWuserResultsTaskNeed>1</isMWuserResultsTaskNeed>
+				
+				<!-- 警司通参数-高德 -->
+				<jiaojing.userid.gd>GDDH</jiaojing.userid.gd>
+				<jiaojing.userpwd.gd>GDDH2017</jiaojing.userpwd.gd>
+				<jiaojing.url.gd>http://api.szjj.me:9080/xxfbpt/services/xxfbptservice</jiaojing.url.gd>
+				<jiaojing.method.gd>xxptSchuding</jiaojing.method.gd>
+				<jiaojing.key.gd>qKHhr1ojRYuUKMD5NOHIuCJm</jiaojing.key.gd>
 
 				<!-- 警司通参数 -->
 				<jiaojing.userid>WX02</jiaojing.userid>

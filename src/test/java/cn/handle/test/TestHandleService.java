@@ -154,8 +154,8 @@ public class TestHandleService {
 		rv.setReceiverName("333");
 		rv.setReceiverNumber("15920050177");
 		rv.setRepairReason("");
-		rv.setSourceOfCertification("C");
-		rv.setUserSource("C");
+		rv.setSourceOfCertification("G");
+		rv.setUserSource("G");
 		Map<String , String> map = new HashMap<>();
 		map = handleService.repairDriverLicense(rv);
 		System.out.println(map);
@@ -313,8 +313,8 @@ public class TestHandleService {
 		dv.setPostalcode("1");
 		dv.setReceiverName("111");
 		dv.setReceiverNumber("222");
-		dv.setSourceOfCertification("C");
-		dv.setUserSource("C");
+		dv.setSourceOfCertification("G");
+		dv.setUserSource("G");
 		
 		Map<String, String > map = new HashMap<>();
 		map = handleService.driverLicenseAnnualVerification(dv);

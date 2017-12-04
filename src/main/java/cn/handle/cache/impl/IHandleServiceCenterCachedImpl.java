@@ -12,6 +12,31 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
 	/**
 	 * 用户id
 	 */
+	@Value("${useridGd}")
+    private String useridGd;
+	/**
+	 * 用户密码
+	 */
+    @Value("${userpwdGd}")
+    private String userpwdGd;
+    /**
+     * 请求地址
+     */
+    @Value("${urlGd}")
+    private String urlGd;
+    /**
+     * 方法
+     */
+    @Value("${methodGd}")
+    private String methodGd;
+    /**
+     * 秘钥
+     */
+    @Value("${keyGd}")
+    private String keyGd;
+	/**
+	 * 用户id
+	 */
 	@Value("${useridAlipay}")
 	private String useridAlipay;
 	/**
@@ -84,6 +109,8 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
 			string = userid;
 		}else if("Z".equals(sourceOfCertification)){
 			string = useridAlipay;
+		}else if("G".equals(sourceOfCertification)){
+			string = useridGd;
 		}else {
 			string = userid;
 		}
@@ -97,6 +124,8 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
 			string = userpwd;
 		}else if("Z".equals(sourceOfCertification)){
 			string = userpwdAlipay;
+		}else if("G".equals(sourceOfCertification)){
+			string = userpwdGd;
 		}else {
 			string = userpwd;
 		}
@@ -110,6 +139,8 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
 			string = url;
 		}else if("Z".equals(sourceOfCertification)){
 			string = urlAlipay;
+		}else if("G".equals(sourceOfCertification)){
+			string = urlGd;
 		}else {
 			string = url;
 		}
@@ -123,6 +154,8 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
 			string = method;
 		}else  if("Z".equals(sourceOfCertification)){
 			string = methodAlipay;
+		}else  if("G".equals(sourceOfCertification)){
+			string = methodGd;
 		}else {
 			string = method;
 		}
@@ -136,6 +169,8 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
 			string = key;
 		}else if("Z".equals(sourceOfCertification)){
 			string = keyAlipay;
+		}else if("G".equals(sourceOfCertification)){
+			string = keyGd;
 		}else {
 			string = key;
 		}
