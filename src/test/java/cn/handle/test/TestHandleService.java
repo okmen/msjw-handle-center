@@ -154,8 +154,8 @@ public class TestHandleService {
 		rv.setReceiverName("333");
 		rv.setReceiverNumber("15920050177");
 		rv.setRepairReason("");
-		rv.setSourceOfCertification("G");
-		rv.setUserSource("G");
+		rv.setSourceOfCertification("M");
+		rv.setUserSource("M");
 		Map<String , String> map = new HashMap<>();
 		map = handleService.repairDriverLicense(rv);
 		System.out.println(map);
@@ -441,14 +441,14 @@ public class TestHandleService {
 	public void testApplyGatePass() throws Exception{
 		ApplyGatePassVo vo = new ApplyGatePassVo();
 		vo.setAbbreviation("粤");
-		vo.setNumberPlate("b1234");
-		vo.setPlateType("K13");
-		vo.setCartype("11");
-		vo.setVin("123123123123123");
-		vo.setUserName("测试张三");
+		vo.setNumberPlate("A12345");
+		vo.setPlateType("02");
+		vo.setCartype("K31");
+		vo.setVin("1234");
+		vo.setUserName("开发测试");
 		vo.setIdentityCard("");
-		vo.setMobilephone("13000231324");
-		vo.setApplyDate("2017-07-11");
+		vo.setMobilephone("13800138000");
+		vo.setApplyDate("2017-10-30");
 		
 		Map<String, String > map = new HashMap<>();
 		map = handleService.applyGatePass(vo);
