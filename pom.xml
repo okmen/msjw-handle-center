@@ -185,6 +185,12 @@
 				<jiaojing.method.alipay>xxptSchuding</jiaojing.method.alipay>
 				<jiaojing.key.alipay>HyjjsQEU7RKMUL71ziH7Pni5</jiaojing.key.alipay>
 				
+				<!-- 警司通参数-民生警务 -->
+				<jiaojing.userid.msjw>msjwpt</jiaojing.userid.msjw>
+				<jiaojing.userpwd.msjw>msjw@2017</jiaojing.userpwd.msjw>
+				<jiaojing.url.msjw>http://123.56.180.216:19002/xxfbpt/services/xxfbptservice</jiaojing.url.msjw>
+				<jiaojing.method.msjw>xxptSchuding</jiaojing.method.msjw>
+				<jiaojing.key.msjw>ZG20YD14WFJB2013XXLRJK89</jiaojing.key.msjw>
 			</properties>
 		</profile>
 
@@ -262,6 +268,12 @@
 				<jiaojing.method.alipay>xxptSchuding</jiaojing.method.alipay>
 				<jiaojing.key.alipay>HyjjsQEU7RKMUL71ziH7Pni5</jiaojing.key.alipay>
 				
+				<!-- 警司通参数-民生警务 -->
+				<jiaojing.userid.msjw>msjwpt</jiaojing.userid.msjw>
+				<jiaojing.userpwd.msjw>msjw@2017</jiaojing.userpwd.msjw>
+				<jiaojing.url.msjw>http://123.56.180.216:19002/xxfbpt/services/xxfbptservice</jiaojing.url.msjw>
+				<jiaojing.method.msjw>xxptSchuding</jiaojing.method.msjw>
+				<jiaojing.key.msjw>ZG20YD14WFJB2013XXLRJK89</jiaojing.key.msjw>
 			</properties>
 		</profile>
 
@@ -340,6 +352,12 @@
 				<jiaojing.method.alipay>xxptSchuding</jiaojing.method.alipay>
 				<jiaojing.key.alipay>HyjjsQEU7RKMUL71ziH7Pni5</jiaojing.key.alipay>
 				
+				<!-- 警司通参数-民生警务 -->
+				<jiaojing.userid.msjw>msjwpt</jiaojing.userid.msjw>
+				<jiaojing.userpwd.msjw>msjw@2017</jiaojing.userpwd.msjw>
+				<jiaojing.url.msjw>http://api.szjj.me:9080/xxfbpt/services/xxfbptservice</jiaojing.url.msjw>
+				<jiaojing.method.msjw>xxptSchuding</jiaojing.method.msjw>
+				<jiaojing.key.msjw>ZG20YD14WFJB2013XXLRJK89</jiaojing.key.msjw>
 			</properties>
 		</profile>
 	</profiles>

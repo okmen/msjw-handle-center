@@ -9,6 +9,21 @@ import cn.handle.cache.IHandleServiceCenterCached;
 @Service
 public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCached {
 	protected Logger log = Logger.getLogger(this.getClass());
+	
+	/**
+     * 民生警务参数
+     */
+    @Value("${useridMsjw}")
+    private String useridMsjw;
+    @Value("${userpwdMsjw}")
+    private String userpwdMsjw;
+    @Value("${urlMsjw}")
+    private String urlMsjw;
+    @Value("${methodMsjw}")
+    private String methodMsjw;
+    @Value("${keyMsjw}")
+    private String keyMsjw;
+	
 	/**
 	 * 用户id
 	 */
@@ -111,6 +126,8 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
 			string = useridAlipay;
 		}else if("G".equals(sourceOfCertification)){
 			string = useridGd;
+		}else if("M".equals(sourceOfCertification)){
+			string = useridMsjw;
 		}else {
 			string = userid;
 		}
@@ -126,6 +143,8 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
 			string = userpwdAlipay;
 		}else if("G".equals(sourceOfCertification)){
 			string = userpwdGd;
+		}else if("M".equals(sourceOfCertification)){
+			string = userpwdMsjw;
 		}else {
 			string = userpwd;
 		}
@@ -141,6 +160,8 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
 			string = urlAlipay;
 		}else if("G".equals(sourceOfCertification)){
 			string = urlGd;
+		}else if("M".equals(sourceOfCertification)){
+			string = urlMsjw;
 		}else {
 			string = url;
 		}
@@ -156,6 +177,8 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
 			string = methodAlipay;
 		}else  if("G".equals(sourceOfCertification)){
 			string = methodGd;
+		}else  if("M".equals(sourceOfCertification)){
+			string = methodMsjw;
 		}else {
 			string = method;
 		}
@@ -171,6 +194,8 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
 			string = keyAlipay;
 		}else if("G".equals(sourceOfCertification)){
 			string = keyGd;
+		}else if("M".equals(sourceOfCertification)){
+			string = keyMsjw;
 		}else {
 			string = key;
 		}
