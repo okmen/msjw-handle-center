@@ -24,6 +24,13 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
     @Value("${keyMsjw}")
     private String keyMsjw;
 	
+    @Value("${msjwTemplateSendUrl}")
+	private String msjwTemplateSendUrl;
+    
+	public String getMsjwTemplateSendUrl() {
+		return msjwTemplateSendUrl;
+	}
+
 	/**
 	 * 用户id
 	 */

@@ -55,6 +55,14 @@ public class IHandleServiceImpl implements IHandleService{
 	
 	
 	@Override
+	public String getMsjwTemplateSendUrl() {
+		String url = iAccountCached.getMsjwTemplateSendUrl();
+		logger.info("获取到的民生警务结果页域名地址是：" + url);
+		return url;
+	}
+
+
+	@Override
 	public Map<String, String> driverLicenseAnnualVerification(
 			DriverLicenseAnnualVerificationVo driverLicenseAnnualVerificationVo)  throws Exception{
 		Map<String, String> map = new HashMap<>();
