@@ -56,7 +56,7 @@ public class IHandleServiceImpl implements IHandleService{
 	
 	@Override
 	public String getMsjwTemplateSendUrl() {
-		String url = iAccountCached.getMsjwTemplateSendUrl();
+		String url = iAccountCached.getMsjwTemplateSendUrl() + "source=M&";
 		logger.info("获取到的民生警务结果页域名地址是：" + url);
 		return url;
 	}
