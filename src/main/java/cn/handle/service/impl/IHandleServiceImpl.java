@@ -63,6 +63,14 @@ public class IHandleServiceImpl implements IHandleService{
 
 
 	@Override
+	public String getMsjwHandleTemplateId() {
+		String templateId = iAccountCached.getMsjwHandleTemplateId();
+		logger.debug("民生警务templateId：" + templateId);
+		return templateId;
+	}
+
+
+	@Override
 	public Map<String, String> driverLicenseAnnualVerification(
 			DriverLicenseAnnualVerificationVo driverLicenseAnnualVerificationVo)  throws Exception{
 		Map<String, String> map = new HashMap<>();
