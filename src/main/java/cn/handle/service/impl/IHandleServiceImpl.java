@@ -66,6 +66,7 @@ public class IHandleServiceImpl implements IHandleService{
 	public Map<String, String> driverLicenseAnnualVerification(
 			DriverLicenseAnnualVerificationVo driverLicenseAnnualVerificationVo)  throws Exception{
 		Map<String, String> map = new HashMap<>();
+		logger.info("【办理类服务】驾驶证年审driverLicenseAnnualVerification...");
 		try {
 			 String sourceOfCertification = driverLicenseAnnualVerificationVo.getUserSource();
 			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
@@ -74,7 +75,7 @@ public class IHandleServiceImpl implements IHandleService{
 			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
 			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.driverLicenseAnnualVerification(driverLicenseAnnualVerificationVo, url, method, userId, userPwd, key);
-			 
+			 logger.info("【办理类服务】驾驶证年审返回结果：" + map);
 		} catch (Exception e) {
 			logger.error("driverLicenseAnnualVerification出错，错误="+ "driverLicenseAnnualVerificationVo=" + driverLicenseAnnualVerificationVo,e);
 			throw e;
@@ -174,6 +175,7 @@ public class IHandleServiceImpl implements IHandleService{
 	@Override
 	public Map<String, String> repairDriverLicense(RepairOrReplaceDriverLicenseVo repairOrReplaceDriverLicenseVo)  throws Exception{
 		Map<String, String> map = new HashMap<>();
+		logger.info("【办理类服务】驾驶证补证repairDriverLicense...");
 		try {
 			 String sourceOfCertification = repairOrReplaceDriverLicenseVo.getUserSource();
 			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
@@ -182,7 +184,7 @@ public class IHandleServiceImpl implements IHandleService{
 			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
 			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.repairDriverLicense(repairOrReplaceDriverLicenseVo, url, method, userId, userPwd, key);
-			 
+			 logger.info("【办理类服务】驾驶证补证返回结果：" + map);
 		} catch (Exception e) {
 			logger.error("repairDriverLicense出错，错误="+ "repairOrReplaceDriverLicenseVo=" + repairOrReplaceDriverLicenseVo,e);
 			throw e;
@@ -195,6 +197,7 @@ public class IHandleServiceImpl implements IHandleService{
 	@Override
 	public Map<String, String> replaceDriverLicense(RepairOrReplaceDriverLicenseVo repairOrReplaceDriverLicenseVo)  throws Exception{
 		Map<String, String> map = new HashMap<>();
+		logger.info("【办理类服务】驾驶证换证replaceDriverLicense...");
 		try {
 			 String sourceOfCertification = repairOrReplaceDriverLicenseVo.getUserSource();
 			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
@@ -203,7 +206,7 @@ public class IHandleServiceImpl implements IHandleService{
 			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
 			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.replaceDriverLicense(repairOrReplaceDriverLicenseVo, url, method, userId, userPwd, key);
-			 
+			 logger.info("【办理类服务】驾驶证换证返回结果：" + map);
 		} catch (Exception e) {
 			logger.error("replaceDriverLicense出错，错误="+ "repairOrReplaceDriverLicenseVo=" + repairOrReplaceDriverLicenseVo,e);
 			throw e;
@@ -263,7 +266,7 @@ public class IHandleServiceImpl implements IHandleService{
 	 */
 	public Map<String, String> replaceInspectionMark(ApplyInspectionMarkVo applyInspectionMarkVo)
 			throws Exception {
-		logger.debug("【办理类服务】补换检验合格标志applyInspectionMarkVo...");
+		logger.info("【办理类服务】补换检验合格标志replaceInspectionMark...");
 		Map<String, String> map = new HashMap<>();
 		try {
 			String sourceOfCertification = applyInspectionMarkVo.getSourceOfCertification();
@@ -274,7 +277,7 @@ public class IHandleServiceImpl implements IHandleService{
 			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.replaceInspectionMark(applyInspectionMarkVo, url, method, userId, userPwd, key);
 			 
-			 logger.debug("【办理类服务】补换检验合格标志结果:"+map);
+			 logger.info("【办理类服务】补换检验合格标志结果:"+map);
 		} catch (Exception e) {
 			logger.error("【办理类服务】补换检验合格标志异常！ApplyInspectionMarkVo="+ applyInspectionMarkVo,e);
 			throw e;
@@ -288,7 +291,7 @@ public class IHandleServiceImpl implements IHandleService{
 	 */
 	public Map<String, String> inspectionDeclaration(ApplyRemoteEntrustedBusinessVo applyRemoteEntrustedBusinessVo)
 			throws Exception {
-		logger.debug("【办理类服务】机动车委托异地定期检验申报 ApplyRemoteEntrustedBusinessVo...");
+		logger.info("【办理类服务】机动车委托异地定期检验申报 inspectionDeclaration...");
 		Map<String, String> map = new HashMap<>();
 		try {
 			String sourceOfCertification = applyRemoteEntrustedBusinessVo.getSourceOfCertification();
@@ -299,7 +302,7 @@ public class IHandleServiceImpl implements IHandleService{
 			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
 			 map = ThirdPartyInterface.inspectionDeclaration(applyRemoteEntrustedBusinessVo, url, method, userId, userPwd, key);
 			 
-			 logger.debug("【办理类服务】机动车委托异地定期检验申报结果:"+map);
+			 logger.info("【办理类服务】机动车委托异地定期检验申报结果:"+map);
 		} catch (Exception e) {
 			logger.error("【办理类服务】机动车委托异地定期检验申报异常！ApplyRemoteEntrustedBusinessVo="+ applyRemoteEntrustedBusinessVo,e);
 			throw e;
@@ -413,7 +416,7 @@ public class IHandleServiceImpl implements IHandleService{
 	 * @throws Exception
 	 */
 	public BaseBean replaceMotorVehicleLicensePlate(ReplaceMotorVehicleLicensePlateVo vo) throws Exception {
-		logger.debug("【办理类服务】补领机动车号牌replaceMotorVehicleLicensePlate...");
+		logger.info("【办理类服务】补领机动车号牌replaceMotorVehicleLicensePlate...");
 		BaseBean baseBean = new BaseBean();
 		try {
 			String sourceOfCertification = vo.getSourceOfCertification();
@@ -437,7 +440,7 @@ public class IHandleServiceImpl implements IHandleService{
 			 baseBean.setCode(code);
 			 baseBean.setMsg(msg);
 			 
-			 logger.debug("replaceMotorVehicleLicensePlate结果:" + JSON.toJSONString(baseBean));
+			 logger.info("replaceMotorVehicleLicensePlate结果:" + JSON.toJSONString(baseBean));
 		} catch (Exception e) {
 			logger.error("replaceMotorVehicleLicensePlate异常！vo=" + vo, e);
 			throw e;
