@@ -359,7 +359,7 @@
 				<!-- 民生警务结果页域名地址 -->
 				<msjw.templateSendUrl>http://gzh.stc.gov.cn/msjw/#/submitSuccess?</msjw.templateSendUrl>
 				<!-- 民生警务六年免检查询页 -->
-				<msjw.sixyearsUrl>http://szjjmsjw.chudaokeji.com/#/exemptionAbolish?</msjw.sixyearsUrl>
+				<msjw.sixyearsUrl>http://gzh.stc.gov.cn/msjw/#/exemptionAbolish?</msjw.sixyearsUrl>
 				<!-- 民生警务办理类模板id -->
 				<msjw.handleTemplateId>b8wUbe6MvmfWq9htacjxekJ5CC2Eg4MZML2DAW3lYqM</msjw.handleTemplateId>
 				
