@@ -179,6 +179,8 @@
 				<templateSendUrl>http://testh5.chudaokeji.com/h5/#/submitSuccess?</templateSendUrl>
 				<!-- 民生警务结果页域名地址 -->
 				<msjw.templateSendUrl>http://szjjmsjw.chudaokeji.com/#/submitSuccess?</msjw.templateSendUrl>
+				<!-- 民生警务六年免检查询页 -->
+				<msjw.sixyearsUrl>http://szjjmsjw.chudaokeji.com/#/exemptionAbolish?</msjw.sixyearsUrl>
 				<!-- 民生警务办理类模板id -->
 				<msjw.handleTemplateId>PkGXcDpXPWOQRRcSoIkbrDVidGUDt-WmDxFVpOgZ5t0</msjw.handleTemplateId>
 				
@@ -266,6 +268,8 @@
 				<templateSendUrl>http://testh5.chudaokeji.com/h5/#/submitSuccess?</templateSendUrl>
 				<!-- 民生警务结果页域名地址 -->
 				<msjw.templateSendUrl>http://szjjmsjw.chudaokeji.com/#/submitSuccess?</msjw.templateSendUrl>
+				<!-- 民生警务六年免检查询页 -->
+				<msjw.sixyearsUrl>http://szjjmsjw.chudaokeji.com/#/exemptionAbolish?</msjw.sixyearsUrl>
 				<!-- 民生警务办理类模板id -->
 				<msjw.handleTemplateId>PkGXcDpXPWOQRRcSoIkbrDVidGUDt-WmDxFVpOgZ5t0</msjw.handleTemplateId>
 				
@@ -354,6 +358,8 @@
 				<templateSendUrl>http://gzh.stc.gov.cn/h5/#/submitSuccess?</templateSendUrl>
 				<!-- 民生警务结果页域名地址 -->
 				<msjw.templateSendUrl>http://gzh.stc.gov.cn/msjw/#/submitSuccess?</msjw.templateSendUrl>
+				<!-- 民生警务六年免检查询页 -->
+				<msjw.sixyearsUrl>http://szjjmsjw.chudaokeji.com/#/exemptionAbolish?</msjw.sixyearsUrl>
 				<!-- 民生警务办理类模板id -->
 				<msjw.handleTemplateId>b8wUbe6MvmfWq9htacjxekJ5CC2Eg4MZML2DAW3lYqM</msjw.handleTemplateId>
 				

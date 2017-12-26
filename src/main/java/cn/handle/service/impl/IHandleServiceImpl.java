@@ -57,7 +57,7 @@ public class IHandleServiceImpl implements IHandleService{
 	@Override
 	public String getMsjwTemplateSendUrl() {
 		String url = iAccountCached.getMsjwTemplateSendUrl() + "source=M&";
-		logger.info("获取到的民生警务结果页域名地址是：" + url);
+		logger.debug("获取到的民生警务结果页域名地址是：" + url);
 		return url;
 	}
 
@@ -67,6 +67,13 @@ public class IHandleServiceImpl implements IHandleService{
 		String templateId = iAccountCached.getMsjwHandleTemplateId();
 		logger.debug("民生警务templateId：" + templateId);
 		return templateId;
+	}
+	
+	@Override
+	public String getMsjwSixyearsUrl() {
+		String url = iAccountCached.getMsjwSixyearsUrl() + "source=M";
+		logger.debug("民生警务六年免检url：" + url);
+		return url;
 	}
 
 
