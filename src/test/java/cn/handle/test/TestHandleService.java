@@ -17,6 +17,7 @@ import cn.handle.bean.vo.ApplyCarTemporaryLicenceVo;
 import cn.handle.bean.vo.ApplyGatePassVo;
 import cn.handle.bean.vo.ApplyInspectionMarkVo;
 import cn.handle.bean.vo.ApplyRemoteEntrustedBusinessVo;
+import cn.handle.bean.vo.CarMortgageVo;
 import cn.handle.bean.vo.CreateVehicleInspectionVo;
 import cn.handle.bean.vo.DelegateVehiclesVo;
 import cn.handle.bean.vo.DriverChangeContactVo;
@@ -36,6 +37,48 @@ public class TestHandleService {
 	@Autowired
     @Qualifier("handleService")
     private IHandleService handleService;
+	
+	
+	@Test
+	public void testapplyOrCancleCarMortgage()throws Exception{
+		CarMortgageVo cv = new CarMortgageVo();
+		cv.setBusinessType("A");
+		cv.setCarCode("xxxxxxx9094");
+		cv.setCarNumber("B6F7M1");
+		cv.setCarType("0");
+		cv.setMainContractNo("123");
+		cv.setMortgageContactNo("213");
+		cv.setMortgageeAddr("高老庄");
+		cv.setMortgageeIDcard("123");
+		cv.setMortgageeName("八戒");
+		cv.setMortgageeSex("男");
+		cv.setMortgagerAddr("花果山");
+		cv.setMortgagerIDcard("213");
+		cv.setMortgagerName("八小戒");
+		cv.setMortgagerSex("男");
+		cv.setNumberPlate("02");
+		cv.setOwnerPhone("123456");
+		cv.setReceiverAddr("深圳市水帘洞");
+		cv.setReceiverCode("111111");
+		cv.setReceiverName("小八戒");
+		cv.setReceiverPhone("12345");
+		cv.setRecipientAddr("深圳市火焰山");
+		cv.setRecipientCode("222222");
+		cv.setRecipientName("猪八戒");
+		cv.setRecipientPhone("12345");
+		cv.setRegistrationNO("21321");
+		cv.setSourceOfCertification("M");
+		cv.setSqlx("31");
+		BaseBean bean = handleService.applyOrCancleCarMortgage(cv);
+		System.out.println(bean.toJson());
+		
+	}
+	
+	@Test
+	public void testqueryCarMortgage()throws Exception{
+		BaseBean bean = handleService.queryCarMortgage("42138119910422133X", "31", "M");
+		System.out.println(bean.toJson());
+	}
 	@Test
 	public void testelectronicDelegateVehicles() throws Exception{
 		DelegateVehiclesVo dv = new DelegateVehiclesVo();
@@ -71,7 +114,7 @@ public class TestHandleService {
 		createVehicleInspectionVo.setPlatNumber("粤B6A42E");
 		createVehicleInspectionVo.setName("测试");
 		createVehicleInspectionVo.setPersonType("1");
-		createVehicleInspectionVo.setDriveLicenseNumber("1111");
+		createVehicleInspectionVo.setDriveLicenseNumber("");
 		createVehicleInspectionVo.setMobile("15920071829");
 		createVehicleInspectionVo.setTelno("");
 		createVehicleInspectionVo.setRecipientsName("测试");
@@ -81,7 +124,7 @@ public class TestHandleService {
 		createVehicleInspectionVo.setEffectiveDate("2017-01-01");
 		createVehicleInspectionVo.setTerminationDate("2017-08-01");
 		createVehicleInspectionVo.setInform("1");
-		createVehicleInspectionVo.setBookerName("测试");
+		createVehicleInspectionVo.setBookerName("");
 		createVehicleInspectionVo.setBookerIdNumber("");
 		createVehicleInspectionVo.setBookerType("0");
 		createVehicleInspectionVo.setCarTypeId("e4e48584399473d20139947fff4e2b2e");
@@ -251,7 +294,7 @@ public class TestHandleService {
 		dv.setPhotoReturnNumberString("111");
 		dv.setReceiverName("张宇帆");
 		dv.setReceiverNumber("15920050177");
-		dv.setSourceOfCertification("C");
+		dv.setSourceOfCertification("M");
 		Map<String, String > map = new HashMap<>();
 		map = handleService.driverLicenseInto(dv);
 		System.out.println(map);

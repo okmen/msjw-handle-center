@@ -7,6 +7,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.poi.ss.formula.ptg.ScalarConstantPtg;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -16,6 +18,8 @@ import cn.handle.bean.vo.ApplyCarTemporaryLicenceVo;
 import cn.handle.bean.vo.ApplyGatePassVo;
 import cn.handle.bean.vo.ApplyInspectionMarkVo;
 import cn.handle.bean.vo.ApplyRemoteEntrustedBusinessVo;
+import cn.handle.bean.vo.CarMortgageBean;
+import cn.handle.bean.vo.CarMortgageVo;
 import cn.handle.bean.vo.DelegateVehiclesVo;
 import cn.handle.bean.vo.DriverChangeContactVo;
 import cn.handle.bean.vo.DriverLicenseAnnualVerificationVo;
@@ -31,6 +35,7 @@ import cn.handle.bean.vo.ResultOfFirstIllegalImpunityVo;
 import cn.handle.bean.vo.VehicleDrivingLicenseVo;
 import cn.sdk.bean.BaseBean;
 import cn.sdk.util.DateUtil2;
+import cn.sdk.util.MsgCode;
 import cn.sdk.util.StringUtil;
 import cn.sdk.webservice.WebServiceClient;
 
@@ -726,6 +731,136 @@ public class ThirdPartyInterface {
 		String msg = jsonObject.getString("MSG");
 		baseBean.setCode(code);
 		baseBean.setMsg(msg);
+		return baseBean;
+	}
+
+	public static BaseBean applyOrCancleCarMortgage(CarMortgageVo carMortgageVo, String url, String method,
+			String userId, String userPwd, String key) throws Exception{
+		BaseBean baseBean = new BaseBean();
+		String jkId = "DY1001";
+		StringBuffer sb = new StringBuffer();
+		sb.append("<?xml version=\"1.0\" encoding=\"gb2312\"?><request>")
+		.append("<lrly>").append(carMortgageVo.getSourceOfCertification()).append("</lrly>")
+		.append("<ywlx>").append(carMortgageVo.getBusinessType()).append("</ywlx>")
+		.append("<sqlx>").append(carMortgageVo.getSqlx()).append("</sqlx>")
+		.append("<zhth>").append(carMortgageVo.getMainContractNo()).append("</zhth>")
+		.append("<dyhth>").append(carMortgageVo.getMortgageContactNo()).append("</dyhth>")
+		.append("<hphm>").append(carMortgageVo.getCarNumber()).append("</hphm>")
+		.append("<hpzl>").append(carMortgageVo.getNumberPlate()).append("</hpzl>")
+		.append("<clsbdh>").append(carMortgageVo.getCarCode()).append("</clsbdh>")
+		.append("<djzsbh>").append(carMortgageVo.getRegistrationNO()).append("</djzsbh>")
+		.append("<czlxfs>").append(carMortgageVo.getOwnerPhone()).append("</czlxfs>")
+		.append("<yhSfzNo>").append(carMortgageVo.getMortgageeIDcard()).append("</yhSfzNo>")
+		.append("<yhSfzName>").append(carMortgageVo.getMortgageeName()).append("</yhSfzName>")
+		.append("<yhSfzSex>").append(carMortgageVo.getMortgageeSex()).append("</yhSfzSex>")
+		.append("<yhSfzAddress>").append(carMortgageVo.getMortgageeAddr()).append("</yhSfzAddress>")
+		.append("<syrlx>").append(carMortgageVo.getCarType()).append("</syrlx>")
+		.append("<dyrSfzNo>").append(carMortgageVo.getMortgagerIDcard()).append("</dyrSfzNo>")
+		.append("<dyrSfzName>").append(carMortgageVo.getMortgagerName()).append("</dyrSfzName>")
+		.append("<dyrSfzSex>").append(carMortgageVo.getMortgagerSex()).append("</dyrSfzSex>")
+		.append("<dyrSfzAddress>").append(carMortgageVo.getMortgagerAddr()).append("</dyrSfzAddress>")
+		.append("<qjQjrxm>").append(carMortgageVo.getRecipientName()).append("</qjQjrxm>")
+		.append("<qjLxdh>").append(carMortgageVo.getRecipientPhone()).append("</qjLxdh>")
+		.append("<qjTddz>").append(carMortgageVo.getRecipientAddr()).append("</qjTddz>")
+		.append("<qjYzbm>").append(carMortgageVo.getRecipientCode()).append("</qjYzbm>")
+		.append("<yjSjrxm>").append(carMortgageVo.getReceiverName()).append("</yjSjrxm>")
+		.append("<yjLxdh>").append(carMortgageVo.getReceiverPhone()).append("</yjLxdh>")
+		.append("<yjTddz>").append(carMortgageVo.getReceiverAddr()).append("</yjTddz>")
+		.append("<yjYzbm>").append(carMortgageVo.getReceiverCode()).append("</yjYzbm>")
+		.append("</request>");
+		JSONObject jsonObject = WebServiceClient.getInstance().requestWebService(url, method, jkId, sb.toString(), userId, userPwd, key);
+		String code = jsonObject.getString("CODE");
+		String msg = jsonObject.getString("MSG");
+		baseBean.setCode(code);
+		baseBean.setMsg(msg);
+		return baseBean;
+	}
+
+	public static BaseBean queryCarMortgage(String loginUser,String sqlx, String url, String method, String userId,
+			String userPwd, String key) throws Exception {
+		BaseBean baseBean = new BaseBean();
+		String jkId = "DY1002";
+		StringBuffer sb = new StringBuffer();
+		sb.append("<?xml version=\"1.0\" encoding=\"gb2312\"?><request>")
+		.append("<lrzh>").append(loginUser).append("</lrzh>")
+		.append("<sqlx>").append(sqlx).append("</sqlx>")
+		.append("</request>");
+		JSONObject json = WebServiceClient.getInstance().requestWebService(url, method, jkId, sb.toString(), userId, userPwd, key);
+		String code = json.getString("CODE");
+		String msg = json.getString("MSG");
+		baseBean.setCode(code);
+		baseBean.setMsg(msg);
+		if (MsgCode.success.equals(code)) {
+			Object obj = json.get("BODY");
+			if(obj instanceof JSONObject && obj != null){
+				JSONObject result = (JSONObject) obj;
+				baseBean.setCode(MsgCode.success);
+				List<CarMortgageBean> list = new ArrayList<>();
+				if (json.toJSONString().contains("[")) {
+					// 多条
+					JSONArray jsonArray = result.getJSONArray("ROW");
+					Iterator iterator = jsonArray.iterator();
+					while (iterator.hasNext()) {
+						JSONObject jsonObject = (JSONObject) iterator.next();
+						CarMortgageBean carMortgageBean = new CarMortgageBean();
+						String applyTime = jsonObject.getString("SBSJ");
+						String businessType = jsonObject.getString("ywlx");
+						String carCode = jsonObject.getString("CLSBDH");
+						String carNumber = jsonObject.getString("HPHM");
+						String mainContractNo = jsonObject.getString("ZHTH");
+						String mortgageContactNo = jsonObject.getString("DYHTH");
+						String numberPlate = jsonObject.getString("HPZL");
+						String ownerIDcard = jsonObject.getString("SFZMHM");
+						String ownerName= jsonObject.getString("CZXM");
+						String serialNumber = jsonObject.getString("LSH");
+						String sourceOfCertification = jsonObject.getString("LRLY");
+						String state = jsonObject.getString("ZT");
+						carMortgageBean.setApplyTime(applyTime);
+						carMortgageBean.setBusinessType(businessType);
+						carMortgageBean.setCarCode(carCode);
+						carMortgageBean.setCarNumber(carNumber);
+						carMortgageBean.setMainContractNo(mainContractNo);
+						carMortgageBean.setMortgageContactNo(mortgageContactNo);
+						carMortgageBean.setNumberPlate(numberPlate);
+						carMortgageBean.setOwnerIDcard(ownerIDcard);
+						carMortgageBean.setOwnerName(ownerName);
+						carMortgageBean.setSerialNumber(serialNumber);
+						carMortgageBean.setSourceOfCertification(sourceOfCertification);
+						carMortgageBean.setState(state);
+						list.add(carMortgageBean);
+					}
+				} else {
+					JSONObject jsonObject = result.getJSONObject("ROW");
+					CarMortgageBean carMortgageBean = new CarMortgageBean();
+					String applyTime = jsonObject.getString("SBSJ");
+					String businessType = jsonObject.getString("ywlx");
+					String carCode = jsonObject.getString("CLSBDH");
+					String carNumber = jsonObject.getString("HPHM");
+					String mainContractNo = jsonObject.getString("ZHTH");
+					String mortgageContactNo = jsonObject.getString("DYHTH");
+					String numberPlate = jsonObject.getString("HPZL");
+					String ownerIDcard = jsonObject.getString("SFZMHM");
+					String ownerName= jsonObject.getString("CZXM");
+					String serialNumber = jsonObject.getString("LSH");
+					String sourceOfCertification = jsonObject.getString("LRLY");
+					String state = jsonObject.getString("ZT");
+					carMortgageBean.setApplyTime(applyTime);
+					carMortgageBean.setBusinessType(businessType);
+					carMortgageBean.setCarCode(carCode);
+					carMortgageBean.setCarNumber(carNumber);
+					carMortgageBean.setMainContractNo(mainContractNo);
+					carMortgageBean.setMortgageContactNo(mortgageContactNo);
+					carMortgageBean.setNumberPlate(numberPlate);
+					carMortgageBean.setOwnerIDcard(ownerIDcard);
+					carMortgageBean.setOwnerName(ownerName);
+					carMortgageBean.setSerialNumber(serialNumber);
+					carMortgageBean.setSourceOfCertification(sourceOfCertification);
+					carMortgageBean.setState(state);
+					list.add(carMortgageBean);
+				}
+				baseBean.setData(list);
+			}
+		}
 		return baseBean;
 	}
 }
