@@ -786,19 +786,19 @@ public class ThirdPartyInterface {
 		.append("<sqlx>").append(sqlx).append("</sqlx>")
 		.append("</request>");
 		JSONObject json = WebServiceClient.getInstance().requestWebService(url, method, jkId, sb.toString(), userId, userPwd, key);
-		String code = json.getString("CODE");
-		String msg = json.getString("MSG");
+		String code = json.getString("code");
+		String msg = json.getString("msg");
 		baseBean.setCode(code);
 		baseBean.setMsg(msg);
 		if (MsgCode.success.equals(code)) {
-			Object obj = json.get("BODY");
+			Object obj = json.get("body");
 			if(obj instanceof JSONObject && obj != null){
 				JSONObject result = (JSONObject) obj;
 				baseBean.setCode(MsgCode.success);
 				List<CarMortgageBean> list = new ArrayList<>();
 				if (json.toJSONString().contains("[")) {
 					// 多条
-					JSONArray jsonArray = result.getJSONArray("ROW");
+					JSONArray jsonArray = result.getJSONArray("row");
 					Iterator iterator = jsonArray.iterator();
 					while (iterator.hasNext()) {
 						JSONObject jsonObject = (JSONObject) iterator.next();
