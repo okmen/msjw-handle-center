@@ -43,13 +43,13 @@ public class TestHandleService {
 	public void testapplyOrCancleCarMortgage()throws Exception{
 		CarMortgageVo cv = new CarMortgageVo();
 		cv.setBusinessType("A");
-		cv.setCarCode("xxxxxxx9094");
+		cv.setCarCode("LSGSA52S5AY249094");
 		cv.setCarNumber("B6F7M1");
 		cv.setCarType("0");
 		cv.setMainContractNo("123");
 		cv.setMortgageContactNo("213");
-		cv.setMortgageeAddr("高老庄");
-		cv.setMortgageeIDcard("123");
+		cv.setMortgageeAddr("深圳市高老庄");
+		cv.setMortgageeIDcard("42138119910422133X");
 		cv.setMortgageeName("八戒");
 		cv.setMortgageeSex("男");
 		cv.setMortgagerAddr("花果山");

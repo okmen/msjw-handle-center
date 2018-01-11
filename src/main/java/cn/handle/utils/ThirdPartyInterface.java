@@ -769,8 +769,8 @@ public class ThirdPartyInterface {
 		.append("<yjYzbm>").append(carMortgageVo.getReceiverCode()).append("</yjYzbm>")
 		.append("</request>");
 		JSONObject jsonObject = WebServiceClient.getInstance().requestWebService(url, method, jkId, sb.toString(), userId, userPwd, key);
-		String code = jsonObject.getString("CODE");
-		String msg = jsonObject.getString("MSG");
+		String code = jsonObject.getString("code");
+		String msg = jsonObject.getString("msg");
 		baseBean.setCode(code);
 		baseBean.setMsg(msg);
 		return baseBean;
