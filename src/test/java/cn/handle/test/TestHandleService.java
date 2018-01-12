@@ -42,14 +42,14 @@ public class TestHandleService {
 	@Test
 	public void testapplyOrCancleCarMortgage()throws Exception{
 		CarMortgageVo cv = new CarMortgageVo();
-		cv.setBusinessType("A");
-		cv.setCarCode("LSGSA52S5AY249094");
-		cv.setCarNumber("B6F7M1");
+		cv.setBusinessType("B");
+		cv.setCarCode("LHGCM567472505563");
+		cv.setCarNumber("B6A42E");
 		cv.setCarType("0");
-		cv.setMainContractNo("123");
-		cv.setMortgageContactNo("213");
+//		cv.setMainContractNo("123");
+//		cv.setMortgageContactNo("213");
 		cv.setMortgageeAddr("深圳市高老庄");
-		cv.setMortgageeIDcard("42138119910422133X");
+		cv.setMortgageeIDcard("445222199209020034");
 		cv.setMortgageeName("八戒");
 		cv.setMortgageeSex("男");
 		cv.setMortgagerAddr("花果山");
@@ -76,7 +76,7 @@ public class TestHandleService {
 	
 	@Test
 	public void testqueryCarMortgage()throws Exception{
-		BaseBean bean = handleService.queryCarMortgage("42138119910422133X", "31", "M");
+		BaseBean bean = handleService.queryCarMortgage("445222199209020034", "31", "M");
 		System.out.println(bean.toJson());
 	}
 	@Test
