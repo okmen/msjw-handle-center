@@ -794,7 +794,6 @@ public class ThirdPartyInterface {
 			Object obj = json.get("body");
 			if(obj instanceof JSONObject && obj != null){
 				JSONObject result = (JSONObject) obj;
-				baseBean.setCode(MsgCode.success);
 				List<CarMortgageBean> list = new ArrayList<>();
 				if (json.toJSONString().contains("[")) {
 					// 多条
@@ -859,6 +858,9 @@ public class ThirdPartyInterface {
 					list.add(carMortgageBean);
 				}
 				baseBean.setData(list);
+			}else{
+				baseBean.setCode(MsgCode.businessError);
+				baseBean.setMsg("未查询到相关数据。");
 			}
 		}
 		return baseBean;
