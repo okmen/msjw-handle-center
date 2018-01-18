@@ -23,7 +23,9 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
     private String methodMsjw;
     @Value("${keyMsjw}")
     private String keyMsjw;
-	
+    
+    @Value("${msjwCarMortgageUrl}")
+	private String msjwCarMortgageUrl;
     @Value("${msjwTemplateSendUrl}")
 	private String msjwTemplateSendUrl;
     @Value("${msjwHandleTemplateId}")
@@ -31,6 +33,10 @@ public class IHandleServiceCenterCachedImpl implements IHandleServiceCenterCache
     @Value("${msjwSixyearsUrl}")
     private String msjwSixyearsUrl;
     
+    
+	public String getMsjwCarMortgageUrl() {
+		return msjwCarMortgageUrl;
+	}
 	public String getMsjwTemplateSendUrl() {
 		return msjwTemplateSendUrl;
 	}

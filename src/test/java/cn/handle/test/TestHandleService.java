@@ -37,8 +37,13 @@ public class TestHandleService {
 	@Autowired
     @Qualifier("handleService")
     private IHandleService handleService;
-	
-	
+	//http://testh5.chudaokeji.com/h5/#/submitSuccess?loginUser=123&sqlx=31&sourceOfCertification=M;
+	@Test
+	public void testa()throws Exception{
+		String msg = "申报成功,流水号为：X18011711289731";
+		String data = msg.substring(msg.indexOf("：")+1);
+		System.out.println(data);
+	}
 	@Test
 	public void testapplyOrCancleCarMortgage()throws Exception{
 		CarMortgageVo cv = new CarMortgageVo();
@@ -50,6 +55,41 @@ public class TestHandleService {
 		cv.setMortgageContactNo("213");
 		cv.setMortgageeAddr("深圳市高老庄");
 		cv.setMortgageeIDcard("445222199209020034");
+		cv.setMortgageeName("八戒");
+		cv.setMortgageeSex("男");
+		cv.setMortgagerAddr("花果山");
+		cv.setMortgagerIDcard("213");
+		cv.setMortgagerName("八小戒");
+		cv.setMortgagerSex("男");
+		cv.setNumberPlate("02");
+		cv.setOwnerPhone("123456");
+		cv.setReceiverAddr("深圳市水帘洞");
+		cv.setReceiverCode("111111");
+		cv.setReceiverName("小八戒");
+		cv.setReceiverPhone("12345");
+		cv.setRecipientAddr("深圳市火焰山");
+		cv.setRecipientCode("222222");
+		cv.setRecipientName("猪八戒");
+		cv.setRecipientPhone("12345");
+		cv.setRegistrationNO("21321");
+		cv.setSourceOfCertification("M");
+		cv.setSqlx("31");
+		BaseBean bean = handleService.applyOrCancleCarMortgage(cv);
+		System.out.println(bean.toJson());
+		
+	}
+	
+	@Test
+	public void testapplyOrCancleCarMortgage2()throws Exception{
+		CarMortgageVo cv = new CarMortgageVo();
+		cv.setBusinessType("A");
+		cv.setCarCode("LHGCM567472505563");// <hphm>B6F7M1</hphm>
+		cv.setCarNumber("B6A42E");
+		cv.setCarType("0");
+		cv.setMainContractNo("123");
+		cv.setMortgageContactNo("213");
+		cv.setMortgageeAddr("深圳市高老庄");
+		cv.setMortgageeIDcard("622822198502074110");
 		cv.setMortgageeName("八戒");
 		cv.setMortgageeSex("男");
 		cv.setMortgagerAddr("花果山");

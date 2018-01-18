@@ -78,7 +78,13 @@ public class IHandleServiceImpl implements IHandleService{
 		return url;
 	}
 
-
+	@Override
+	public String getMsjwCarMortgageUrl() {
+		String url = iAccountCached.getMsjwCarMortgageUrl();
+		logger.debug("机动车抵押解押登记url：" + url);
+		return url;
+	}
+	
 	@Override
 	public Map<String, String> driverLicenseAnnualVerification(
 			DriverLicenseAnnualVerificationVo driverLicenseAnnualVerificationVo)  throws Exception{
