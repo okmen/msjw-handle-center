@@ -241,7 +241,7 @@ public class IHandleServiceImpl implements IHandleService{
 
 	@Override
 	public Map<String, String> applyGatePass(ApplyGatePassVo applyGatePassVo) throws Exception {
-		logger.debug("【办理类服务】申请通行证(外地车)applyGatePass...");
+		logger.debug("【办理类服务】申请通行证(外地车)applyGatePass...车牌类型："+applyGatePassVo.getPlateType());
 		Map<String, String> map = new HashMap<>();
 		try {
 			String sourceOfCertification = "";

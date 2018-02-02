@@ -249,7 +249,6 @@ public class ThirdPartyInterface {
 		if("52".equals(applyGatePassVo.getPlateType())){
 			hplx = "小型新能源汽车";
 		}
-		System.out.println("号牌种类:" + hplx);
 		StringBuffer sb = new StringBuffer();
 			sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?><REQUEST>")
 			.append("<HPHM>").append(applyGatePassVo.getAbbreviation()+applyGatePassVo.getNumberPlate()).append("</HPHM>")     //号码号牌
