@@ -365,7 +365,7 @@
 				<!-- 民生警务六年免检查询页 -->
 				<msjw.sixyearsUrl>http://gzh.stc.gov.cn/msjw/#/exemptionAbolish?</msjw.sixyearsUrl>
 				<!-- 民生警务机动车抵押查询页 -->
-				<msjw.sixyearsUrl>http://gzh.stc.gov.cn/msjw/#/mortgageBusinessDetail?</msjw.sixyearsUrl>
+				<msjw.carMortgageUrl>http://gzh.stc.gov.cn/msjw/#/mortgageBusinessDetail?</msjw.carMortgageUrl>
 				<!-- 民生警务办理类模板id -->
 				<msjw.handleTemplateId>b8wUbe6MvmfWq9htacjxekJ5CC2Eg4MZML2DAW3lYqM</msjw.handleTemplateId>
 				
