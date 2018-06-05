@@ -262,7 +262,7 @@ public class ThirdPartyInterface {
 			.append("<SFZMHM>").append("").append("</SFZMHM>")  //身份证明号码
 			.append("<SJHM>").append(applyGatePassVo.getMobilephone()).append("</SJHM>")  //手机号码
 			.append("<SQRQ>").append(applyGatePassVo.getApplyDate()).append("</SQRQ>")  //申请日期
-			.append("<BZ>").append("").append("</BZ>")  //备注字段
+			.append("<BZ>").append(applyGatePassVo.getRemarks()).append("</BZ>")  //备注字段 --准考证号
 			.append("</REQUEST>");
 		
 		JSONObject EZ1001RepJson = WebServiceClient.getInstance().requestWebService(url, method, EZ1001, sb.toString(), userId, userPwd, key);
