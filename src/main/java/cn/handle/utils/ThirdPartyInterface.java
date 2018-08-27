@@ -391,6 +391,9 @@ public class ThirdPartyInterface {
 		String msg = EZ1002RepJson.getString("MSG");
 		map.put("code", code);
 		map.put("msg", msg);
+		if("0000".equals(code)){
+			map.put("cid", EZ1002RepJson.getString("cid"));
+		}
 		return map;
 	}
 	
@@ -429,6 +432,9 @@ public class ThirdPartyInterface {
 		String msg = EZ1002RepJson.getString("MSG");
 		map.put("code", code);
 		map.put("msg", msg);
+		if("0000".equals(code)){
+			map.put("cid", EZ1002RepJson.getString("cid"));
+		}
 		return map;
 	
 	}
