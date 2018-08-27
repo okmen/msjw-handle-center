@@ -308,6 +308,41 @@ public class IHandleServiceImpl implements IHandleService{
 		return map;
 	}
 
+	/**
+	 * 6.19驾驶人信息单打印申请接口
+	 * @author max
+	 * @date:   2018年8月27日
+	 * @Desc :
+	 * @param iocomotiveCarChangeContactVo
+	 * @param type //申请类型（1代表驾驶人信息单；3代表无车证明申请；4代表驾驶人安全事故信用表 
+	 * @param name //申请人姓名（必须是星级用户姓名）
+	 * @param phone //申请人联系电话（必须是星级用户联系电话
+	 * @return
+	 * @throws Exception
+	 */
+	public Map<String, String> driverInformationSheetPrint(Map<String, String> param) throws Exception {
+		logger.info("【信息单据】");
+		Map<String, String> map = new HashMap<>();
+		try {
+			 String sourceOfCertification = map.get("sourceOfCertification"); 
+			 String url = iAccountCached.getUrl(sourceOfCertification); //webservice请求url
+			 String method = iAccountCached.getMethod(sourceOfCertification); //webservice请求方法名称
+			 String userId = iAccountCached.getUserid(sourceOfCertification); //webservice登录账号
+			 String userPwd = iAccountCached.getUserpwd(sourceOfCertification); //webservice登录密码
+			 String key = iAccountCached.getKey(sourceOfCertification); //秘钥
+			 param.put("url", url);
+			 param.put("method", method);
+			 param.put("userId", userId);
+			 param.put("userPwd", userPwd);
+			 param.put("key", key);
+			 map = ThirdPartyInterface.driverInformationSheetPrint(param);
+			 logger.info("【信息单据】处理结果:"+map);
+		} catch (Exception e) {
+			logger.error("【信息单据】处理异常="+ JSON.toJSONString(map),e); 
+			throw e;
+		}
+		return map;
+	}
 
 	/**
 	 * 机动车委托异地定期检验申报

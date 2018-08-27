@@ -360,6 +360,40 @@ public class ThirdPartyInterface {
 		map.put("msg", msg);
 		return map;
 	}
+	
+	/**
+	 * 驾驶人信息单打印申请接口
+	 * @author max
+	 * @date:   2018年8月27日
+	 * @Desc :
+	 * @param iocomotiveCarChangeContactVo
+	 * @param type //申请类型（1代表驾驶人信息单；3代表无车证明申请；4代表驾驶人安全事故信用表 
+	 * @param name //申请人姓名（必须是星级用户姓名）
+	 * @param phone //申请人联系电话（必须是星级用户联系电话
+	 * @return
+	 * @throws Exception
+	 */
+	public static Map<String, String> driverInformationSheetPrint(Map<String, String> param) throws Exception{
+		Map<String , String> map = new HashMap<>();
+		String processNumber = "EZ1005";
+		//拼装xml数据
+		StringBuffer sb = new StringBuffer();
+		sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?><request>")
+		.append("<sqlx>"+param.get("type")).append("</sqlx>")     //申请类型（1代表驾驶人信息单；3代表无车证明申请；4代表驾驶人安全事故信用表 
+		.append("<xm>"+param.get("name")+"</xm>") //申请人姓名（必须是星级用户姓名）
+		.append("<sfzmhm>"+param.get("identitycard")+"</sfzmhm>") //申请人身份证号码（必须是星级用户身份证号码）
+		.append("<lxdh>"+param.get("phone")+"</lxdh>") //申请人联系电话（必须是星级用户联系电话）
+		.append("<sqly>"+param.get("sourceOfCertification")+"</sqly>") //申请来源（APP 传A，微信传C，支付宝传Z）
+		; 
+		String processXml = sb.toString();
+		JSONObject EZ1002RepJson = WebServiceClient.getInstance().requestWebService(param.get("url"), param.get("method"), processNumber, processXml, param.get("userId"), param.get("userPwd"),  param.get("key"));
+		String code = EZ1002RepJson.getString("CODE"); 
+		String msg = EZ1002RepJson.getString("MSG");
+		map.put("code", code);
+		map.put("msg", msg);
+		return map;
+	}
+	
 	/**
 	 * 换领机动车行驶证
 	 * @param args
